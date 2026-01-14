@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadProjects } from '../data/projects.js';
+
+const projects = await loadProjects();
+---
+
+<Layout title="Projects">
+	<section class="section">
+		<p class="eyebrow">Projects</p>
+		<h1>Translational initiatives and research systems</h1>
+		<p>Projects are sourced from <code>projects.json</code>.</p>
+	</section>
+
+	<section class="section grid two">
+		{projects.map((project) => {
+			const validLinks = (project.links ?? []).filter(
+				(link) => typeof link.url === 'string' && !link.url.startsWith('TODO')
+			);
+			const pendingLinks = (project.links ?? []).some(
+				(link) => typeof link.url !== 'string' || link.url.startsWith('TODO')
+			);
+
+			return (
+				<article class="card project-card">
+					<div class="project-header">
+						<div>
+							<p class="eyebrow">{project.timeframe}</p>
+							<h2>{project.title}</h2>
+							<p class="project-subtitle">{project.subtitle}</p>
+						</div>
+						<span class="tag">{project.status}</span>
+					</div>
+					<p>{project.summary}</p>
+					<ul>
+						{project.highlights?.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+					<div class="tag-list">
+						{project.tags?.map((tag, index) => (
+							<span class={`tag ${index % 2 === 0 ? '' : 'alt'}`}>{tag}</span>
+						))}
+					</div>
+					{validLinks.length > 0 && (
+						<div class="project-links">
+							{validLinks.map((link) => (
+								<a href={link.url}>{link.label}</a>
+							))}
+						</div>
+					)}
+					{pendingLinks && <p class="pending">Links available on request.</p>}
+				</article>
+			);
+		})}
+	</section>
+</Layout>
+
+<style>
+	.project-card {
+		display: grid;
+		gap: 0.9rem;
+	}
+
+	.project-header {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		align-items: flex-start;
+	}
+
+	.project-subtitle {
+		margin: 0;
+		color: var(--muted);
+	}
+
+	.project-card ul {
+		margin: 0;
+		padding-left: 1.2rem;
+		color: var(--muted);
+	}
+
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.project-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	.project-links a {
+		color: var(--muted);
+	}
+
+	.project-links a:hover {
+		color: var(--ink);
+	}
+
+	.pending {
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--muted-light);
+	}
+</style>

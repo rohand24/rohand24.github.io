@@ -1,11 +1,140 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig.js';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => {
+	if (!path) return base;
+	if (path.startsWith('http')) return path;
+	if (path === '/') return base;
+	const trimmed = path.replace(/^\//, '');
+	return `${base}${trimmed}`;
+};
+
+const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headshot) : null;
+const roles = siteConfig.person.roles ?? [];
+const keywords = siteConfig.seo?.keywords ?? [];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home" description={siteConfig.site.description}>
+	<section class="hero section">
+		<div class="hero-text">
+			<p class="eyebrow">Translational AI and medical imaging</p>
+			<h1>{siteConfig.person.name}</h1>
+			<p class="lead">{siteConfig.site.description}</p>
+			<div class="hero-links">
+				<a class="button" href={withBase('/research')}>Research</a>
+				<a class="button secondary" href={withBase('/projects')}>Projects</a>
+				<a class="button secondary" href={withBase('/cv')}>CV</a>
+			</div>
+				<div class="contact-strip">
+					<a href={`mailto:${siteConfig.person.email}`}>{siteConfig.person.email}</a>
+					<span>|</span>
+					<a href={siteConfig.links.linkedin}>LinkedIn</a>
+					<span>|</span>
+					<a href={siteConfig.links.googleScholar}>Google Scholar</a>
+				</div>
+		</div>
+		{headshot && (
+			<div class="hero-portrait">
+				<img src={headshot} alt={`Portrait of ${siteConfig.person.name}`} loading="eager" />
+			</div>
+		)}
+	</section>
+
+	<section class="section grid two">
+		<div class="card">
+			<p class="eyebrow">Current roles</p>
+			<h2>Research focus</h2>
+			<ul>
+				{roles.map((role) => (
+					<li>{role}</li>
+				))}
+			</ul>
+		</div>
+		<div class="card">
+			<p class="eyebrow">Core themes</p>
+			<h2>Applications</h2>
+			<div class="tag-list">
+				{keywords.map((keyword, index) => (
+					<span class={`tag ${index % 2 === 0 ? '' : 'alt'}`}>{keyword}</span>
+				))}
+			</div>
+		</div>
+	</section>
 </Layout>
+
+<style>
+	.hero {
+		display: grid;
+		gap: 2.5rem;
+		align-items: center;
+	}
+
+	.hero-text h1 {
+		font-size: clamp(2.6rem, 4vw, 3.6rem);
+	}
+
+	.lead {
+		font-size: 1.1rem;
+		color: var(--muted);
+	}
+
+	.hero-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		margin: 1.5rem 0 1rem;
+	}
+
+	.contact-strip {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		font-weight: 600;
+		color: var(--muted-light);
+	}
+
+	.contact-strip a {
+		color: var(--muted-light);
+	}
+
+	.hero-portrait {
+		position: relative;
+		border-radius: 24px;
+		overflow: hidden;
+		border: 1px solid var(--border);
+		box-shadow: var(--shadow);
+		max-width: 320px;
+		justify-self: center;
+	}
+
+	.hero-portrait img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.card ul {
+		margin: 1rem 0 0;
+		padding-left: 1.2rem;
+		color: var(--muted);
+	}
+
+	.tag-list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	@media (min-width: 920px) {
+		.hero {
+			grid-template-columns: 1.2fr 0.8fr;
+		}
+
+		.hero-portrait {
+			max-width: 360px;
+		}
+	}
+</style>

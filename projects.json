@@ -1,0 +1,89 @@
+[
+  {
+    "id": "arise-care-ckd",
+    "title": "ARiSe / CARE-CKD",
+    "subtitle": "Retinal AI for cardiovascular screening in chronic kidney disease",
+    "timeframe": "2022-Present",
+    "role": "Co-Investigator / Key Technical Lead",
+    "status": "Active",
+    "summary": "A frugal AI pipeline that repurposes routine retinal fundus images to estimate cardiovascular risk, designed for non-specialist and resource-limited settings.",
+    "highlights": [
+      "Clinical validation on ~800 CKD patients; published in Kidney360 (CARE-CKD).",
+      "Demonstrated cross-disease utility (retinal feature pipeline applied to Alzheimer's detection).",
+      "Supported by Georgia Research Alliance (GRA) Phase 1 commercialization funding ($50,000)."
+    ],
+    "tags": ["Retina", "CVD", "CKD", "Risk stratification", "Translation"],
+    "links": [
+      { "label": "Kidney360 paper", "url": "https://journals.lww.com/kidney360/abstract/9900/fundus_photograph_derived_computational_features.740.aspx" }
+    ]
+  },
+  {
+    "id": "ecg-transplant-rejection",
+    "title": "Non-Invasive Transplant Rejection Monitoring",
+    "subtitle": "ECG-based rejection risk estimation to reduce reliance on biopsies",
+    "timeframe": "2024-Present",
+    "role": "Lead developer / researcher",
+    "status": "Active",
+    "summary": "AI-based ECG modeling to estimate heart transplant rejection risk non-invasively and reduce frequent endomyocardial biopsies.",
+    "highlights": [
+      "Preliminary validation accepted for presentation at ISHLT 2026.",
+      "Designed for integration into routine post-transplant clinical workflows."
+    ],
+    "tags": ["ECG", "Transplant", "Risk prediction", "Clinical ML"],
+    "links": [
+      { "label": "ISHLT 2026 abstract" }
+    ]
+  },
+  {
+    "id": "opportunistic-liver-screening-lari",
+    "title": "Opportunistic Liver Screening (DeHFT / LARI)",
+    "subtitle": "Hepatic steatosis assessment from low-dose CT originally acquired for coronary calcium scoring",
+    "timeframe": "2020-2022",
+    "role": "Research Assistant / technical co-inventor",
+    "status": "Completed",
+    "summary": "Deep learning and radiomics pipeline for liver fat/steatosis assessment from low-dose CT acquired for other indications (opportunistic screening).",
+    "highlights": [
+      "Validated on ~700 patients with strong correlation to reference standards.",
+      "Underpins an allowed US patent on deep-learning-based hepatic fat assessment.",
+      "Extended to LARI study published in Lancet eBioMedicine."
+    ],
+    "tags": ["CT", "Radiomics", "Opportunistic screening", "Hepatology"],
+    "links": [
+      { "label": "Patent publication (US 20240420320 A1)", "url": "https://patents.google.com/patent/US20240420320A1/en" },
+      { "label": "Lancet eBioMedicine paper", "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00497-2/fulltext" }
+    ]
+  },
+  {
+    "id": "star-echo",
+    "title": "STAR-Echo",
+    "subtitle": "Spatiotemporal modeling of echocardiogram videos for MACE prognosis in CKD",
+    "timeframe": "2022-2023",
+    "role": "Lead developer / researcher",
+    "status": "Completed",
+    "summary": "Spatiotemporal analysis of echocardiogram videos to derive prognostic signatures for major adverse cardiovascular events (MACE) in CKD.",
+    "highlights": [
+      "Accepted/presented at MICCAI 2023.",
+      "Associated transformer-based spatiotemporal patent application (US 20250118435 A1)."
+    ],
+    "tags": ["Echocardiography", "Video ML", "Transformers", "CKD", "MACE"],
+    "links": [
+      { "label": "Patent publication (US 20250118435 A1)", "url": "https://patents.google.com/patent/US20250118435A1/en" },
+      { "label": "MICCAI 2023 paper", "url": "https://link.springer.com/chapter/10.1007/978-3-031-43987-2_28" }
+    ]
+  },
+  {
+    "id": "gsab-leadership",
+    "title": "Graduate Student Advocacy Board (GSAB) Leadership",
+    "subtitle": "Co-President, BME (Georgia Tech/Emory)",
+    "timeframe": "2024-Present",
+    "role": "Co-President",
+    "status": "Active",
+    "summary": "Student leadership focused on improving PhD training experience, mentoring, and addressing TA/health insurance concerns.",
+    "highlights": [
+      "Organized student-faculty townhalls on PhD training concerns.",
+      "Helped restart Mock Quals mentorship pairing senior and junior PhD students.",
+      "Created avenues to discuss TA and health insurance concerns."
+    ],
+    "tags": ["Leadership", "Service", "Mentorship"]
+  }
+]

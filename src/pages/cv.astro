@@ -1,0 +1,74 @@
+---
+import fs from 'node:fs/promises';
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig.js';
+
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => {
+	if (!path) return base;
+	if (path.startsWith('http')) return path;
+	if (path === '/') return base;
+	const trimmed = path.replace(/^\//, '');
+	return `${base}${trimmed}`;
+};
+
+const resumePath = new URL('../../resume.md', import.meta.url);
+const resumeText = await fs.readFile(resumePath, 'utf-8');
+const markdownProcessor = await createMarkdownProcessor();
+const { code: resumeHtml } = await markdownProcessor.render(resumeText);
+const cvDownload = siteConfig.links.cvDownload ?? '/cv/CV_RohanDhamdhereJan2026.pdf';
+const docxDownload = cvDownload.replace(/\.pdf$/i, '.docx');
+---
+
+<Layout title="CV">
+	<section class="section">
+		<p class="eyebrow">Curriculum Vitae</p>
+		<h1>Resume and downloadable CV</h1>
+		<p>
+			The CV below is rendered from <code>resume.md</code>. Download the full document using
+			the links.
+		</p>
+		<div class="download-links">
+			<a class="button" href={withBase(cvDownload)} download>Download PDF</a>
+			<a class="button secondary" href={withBase(docxDownload)} download>Download DOCX</a>
+		</div>
+	</section>
+
+	<section class="section card cv-content">
+		<div set:html={resumeHtml} />
+	</section>
+</Layout>
+
+<style>
+	.download-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+		margin-top: 1.5rem;
+	}
+
+	.cv-content :global(h1) {
+		font-size: 1.8rem;
+		margin-top: 0;
+	}
+
+	.cv-content :global(h2) {
+		margin-top: 1.8rem;
+		font-size: 1.4rem;
+	}
+
+	.cv-content :global(h3) {
+		margin-top: 1.4rem;
+		font-size: 1.15rem;
+	}
+
+	.cv-content :global(p) {
+		color: var(--muted);
+	}
+
+	.cv-content :global(ul) {
+		padding-left: 1.2rem;
+		color: var(--muted);
+	}
+</style>

@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig.js';
+---
+
+<Layout title="About">
+	<section class="section">
+		<p class="eyebrow">About</p>
+		<h1>Translational research and frugal innovation</h1>
+		<p>
+			{siteConfig.site.description}
+		</p>
+		<p>
+			My work centers on turning routine clinical data into scalable risk stratification tools.
+			I focus on cardiovascular and systemic disease detection from retinal imaging, ECG, and
+			echocardiography, with an emphasis on deployment in resource-limited settings.
+		</p>
+	</section>
+
+	<section class="section grid two">
+		<div class="card">
+			<p class="eyebrow">Education</p>
+			<h2>Training</h2>
+			<ul>
+				<li>PhD, Biomedical Engineering (Georgia Tech & Emory) - Expected 2026</li>
+				<li>MS, Computer Engineering - Rochester Institute of Technology, 2018</li>
+				<li>BE, Electronics & Telecommunication - Savitribai Phule Pune University, 2015</li>
+			</ul>
+		</div>
+		<div class="card">
+			<p class="eyebrow">Leadership</p>
+			<h2>Service and mentoring</h2>
+			<ul>
+				<li>Co-President, Graduate Student Advocacy Board (BME, Georgia Tech/Emory).</li>
+				<li>Mentored students in bioengineering statistics and reproducible analysis.</li>
+				<li>Featured innovator in Emory Health Digest (Summer 2025).</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section card">
+		<p class="eyebrow">Clinical translation</p>
+		<h2>From research to deployment</h2>
+		<p>
+			I have helped advance AI-driven diagnostics toward clinical use through commercialization
+			funding, intellectual property filings, and clinical validation in cohorts spanning
+			cardiology, nephrology, and hepatology. Current efforts focus on building deployable
+			prototypes for optometry and specialty clinic workflows.
+		</p>
+	</section>
+</Layout>
+
+<style>
+	ul {
+		margin: 1rem 0 0;
+		padding-left: 1.2rem;
+		color: var(--muted);
+	}
+</style>

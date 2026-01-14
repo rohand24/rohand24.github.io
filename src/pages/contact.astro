@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig.js';
+---
+
+<Layout title="Contact">
+	<section class="section">
+		<p class="eyebrow">Contact</p>
+		<h1>Let's connect</h1>
+		<p>
+			Email is the fastest way to reach me. I also share updates via GitHub, LinkedIn, and
+			Google Scholar.
+		</p>
+	</section>
+
+	<section class="section grid two">
+		<div class="card contact-card">
+			<p class="eyebrow">Email</p>
+			<h2>{siteConfig.person.email}</h2>
+			<a class="button" href={`mailto:${siteConfig.person.email}`}>Send email</a>
+		</div>
+		<div class="card contact-card">
+			<p class="eyebrow">Links</p>
+			<div class="contact-links">
+				<a href={siteConfig.links.linkedin}>LinkedIn</a>
+				<a href={siteConfig.links.googleScholar}>Google Scholar</a>
+				<a href={siteConfig.links.github}>GitHub</a>
+				{siteConfig.links.orcid && <a href={siteConfig.links.orcid}>ORCID</a>}
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.contact-card {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.contact-links {
+		display: grid;
+		gap: 0.6rem;
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	.contact-links a {
+		color: var(--muted);
+	}
+
+	.contact-links a:hover {
+		color: var(--ink);
+	}
+</style>

@@ -1,0 +1,91 @@
+---
+import { siteConfig } from '../data/siteConfig.js';
+
+const base = import.meta.env.BASE_URL;
+const navItems = siteConfig.navigation ?? [];
+const withBase = (path) => {
+	if (path === '/') return base;
+	const trimmed = path.replace(/^\//, '');
+	return `${base}${trimmed}`;
+};
+---
+
+<header class="site-header">
+	<div class="brand">
+		<a class="brand-name" href={withBase('/')}>
+			{siteConfig.person.preferredName ?? siteConfig.person.name}
+		</a>
+		<span class="brand-tagline">{siteConfig.site.tagline}</span>
+	</div>
+	<nav class="site-nav">
+		{navItems.map((item) => (
+			<a class="nav-link" href={withBase(item.path)}>
+				{item.label}
+			</a>
+		))}
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		padding: 1.75rem 1.5rem 0;
+		max-width: 1120px;
+		margin: 0 auto;
+	}
+
+	.brand {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.brand-name {
+		font-size: 1.4rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+	}
+
+	.brand-tagline {
+		font-size: 0.95rem;
+		color: var(--muted);
+	}
+
+	.site-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.nav-link {
+		padding: 0.35rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--muted);
+		transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+	}
+
+	.nav-link:hover {
+		color: var(--ink);
+		border-color: rgba(20, 18, 15, 0.3);
+		transform: translateY(-1px);
+	}
+
+	@media (min-width: 880px) {
+		.site-header {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 2.5rem 2rem 0;
+		}
+
+		.brand {
+			max-width: 420px;
+		}
+	}
+</style>

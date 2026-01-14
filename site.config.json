@@ -1,0 +1,76 @@
+{
+  "site": {
+    "title": "Rohan N. Dhamdhere",
+    "tagline": "Translational AI for accessible cardiovascular risk stratification",
+    "baseUrl": "https://rohand24.github.io",
+    "description": "Biomedical engineer focused on frugal innovation: AI-driven diagnostic tools built on routine clinical data for scalable deployment.",
+    "language": "en",
+    "timezone": "America/New_York"
+  },
+  "person": {
+    "name": "Rohan N. Dhamdhere",
+    "preferredName": "Rohan",
+    "location": "Atlanta, GA",
+    "email": "rohan.dhamdhere@emory.edu",
+    "phone": "+1-585-532-8275",
+    "roles": [
+      "PhD Student, Biomedical Engineering (Georgia Tech & Emory)",
+      "Graduate Researcher, Georgia Institute of Technology & Emory University",
+      "Translational AI / Medical Imaging"
+    ],
+    "affiliations": [
+      "Georgia Institute of Technology",
+      "Emory University"
+    ]
+  },
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/rohandhamdhere/",
+    "googleScholar": "https://scholar.google.com/citations?user=-PyRW6EAAAAJ&hl=en",
+    "github": "https://github.com/rohand24",
+    "orcid": "https://orcid.org/0000-0001-5213-3313",
+    "cvDownload": "/cv/CV_RohanDhamdhereJan2026.pdf"
+  },
+  "assets": {
+    "headshot": "/images/ProPic.jpeg",
+    "favicon": "/favicon.svg"
+  },
+  "navigation": [
+    { "label": "Home", "path": "/" },
+    { "label": "About", "path": "/about" },
+    { "label": "Research", "path": "/research" },
+    { "label": "Projects", "path": "/projects" },
+    { "label": "CV", "path": "/cv" },
+    { "label": "Contact", "path": "/contact" }
+  ],
+  "seo": {
+    "defaultOgImage": "TODO_ADD_OG_IMAGE_PATH_OR_LEAVE_EMPTY",
+    "twitterHandle": "rohand24",
+    "keywords": [
+      "Biomedical Engineering",
+      "Translational AI",
+      "Retinal imaging",
+      "Echocardiography",
+      "ECG",
+      "Cardiovascular risk",
+      "Chronic kidney disease",
+      "Opportunistic screening",
+      "Medical imaging"
+    ]
+  },
+  "features": {
+    "showPatents": true,
+    "showFunding": true,
+    "showTeachingLeadership": true,
+    "enableBlog": false,
+    "enableSearch": false
+  },
+  "integrations": {
+    "googleAnalyticsId": "TODO_OPTIONAL",
+    "plausibleDomain": "TODO_OPTIONAL"
+  },
+  "build": {
+    "resumeSourcePath": "/resume.md",
+    "publicationsBibPath": "/publications.bib",
+    "projectsJsonPath": "/projects.json"
+  }
+}

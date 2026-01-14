@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadPublications } from '../data/publications.js';
+
+const publications = await loadPublications();
+const grouped = publications.reduce((acc, pub) => {
+	const year = pub.year || 'Undated';
+	acc[year] = acc[year] || [];
+	acc[year].push(pub);
+	return acc;
+}, {});
+
+const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
+
+const formatAuthors = (author) =>
+	author ? author.replace(/\s+/g, ' ').replace(/\s+and\s+/gi, ', ') : '';
+---
+
+<Layout title="Research">
+	<section class="section">
+		<p class="eyebrow">Research</p>
+		<h1>Publications & scholarly output</h1>
+		<p>
+			Publications are sourced directly from <code>publications.bib</code> and listed in
+			descending order.
+		</p>
+	</section>
+
+	{years.map((year) => (
+		<section class="section">
+			<h2 class="year-heading">{year}</h2>
+			<div class="pub-list">
+				{grouped[year].map((pub) => (
+					<article class="card pub-card">
+						<p class="pub-title">{pub.title}</p>
+						<p class="pub-authors">{formatAuthors(pub.author)}</p>
+						<p class="pub-venue">
+							{pub.venue}
+							{pub.venue && pub.year ? ' - ' : ''}
+							{pub.year || ''}
+						</p>
+						<span class="tag alt">{pub.type}</span>
+					</article>
+				))}
+			</div>
+		</section>
+	))}
+</Layout>
+
+<style>
+	.year-heading {
+		font-size: 1.6rem;
+		margin-bottom: 1rem;
+	}
+
+	.pub-list {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.pub-card {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.pub-title {
+		font-weight: 700;
+		color: var(--ink);
+		margin: 0;
+	}
+
+	.pub-authors {
+		margin: 0;
+		color: var(--muted);
+	}
+
+	.pub-venue {
+		margin: 0;
+		color: var(--muted-light);
+		font-size: 0.95rem;
+	}
+</style>

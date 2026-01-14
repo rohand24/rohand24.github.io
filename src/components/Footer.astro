@@ -1,0 +1,69 @@
+---
+import { siteConfig } from '../data/siteConfig.js';
+---
+
+<footer class="site-footer">
+	<div>
+		<p class="footer-title">{siteConfig.person.name}</p>
+		<p class="footer-meta">{siteConfig.person.location}</p>
+	</div>
+	<div class="footer-links">
+		<a href={`mailto:${siteConfig.person.email}`}>Email</a>
+		{siteConfig.links.github && <a href={siteConfig.links.github}>GitHub</a>}
+		{siteConfig.links.linkedin && <a href={siteConfig.links.linkedin}>LinkedIn</a>}
+		{siteConfig.links.googleScholar && <a href={siteConfig.links.googleScholar}>Google Scholar</a>}
+	</div>
+	<p class="footer-note">
+		Built with Astro and deployed via GitHub Pages.
+	</p>
+</footer>
+
+<style>
+	.site-footer {
+		margin: 4rem auto 0;
+		padding: 2.5rem 1.5rem 3rem;
+		border-top: 1px solid var(--border);
+		max-width: 1120px;
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	.footer-title {
+		font-weight: 700;
+		color: var(--ink);
+		margin-bottom: 0.2rem;
+	}
+
+	.footer-meta {
+		margin: 0;
+		color: var(--muted-light);
+	}
+
+	.footer-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+	}
+
+	.footer-links a {
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	.footer-links a:hover {
+		color: var(--ink);
+	}
+
+	.footer-note {
+		margin: 0;
+		font-size: 0.85rem;
+		color: var(--muted-light);
+	}
+
+	@media (min-width: 880px) {
+		.site-footer {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			align-items: center;
+		}
+	}
+</style>
