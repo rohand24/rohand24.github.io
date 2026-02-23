@@ -12,29 +12,45 @@ const withBase = (path) => {
 };
 
 const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headshot) : null;
-const roles = siteConfig.person.roles ?? [];
-const keywords = siteConfig.seo?.keywords ?? [];
 ---
 
 <Layout title="Home" description={siteConfig.site.description}>
+
+	<!-- ── Hero ─────────────────────────────────────────────── -->
 	<section class="hero section">
 		<div class="hero-text">
-			<p class="eyebrow">Translational AI and medical imaging</p>
+			<p class="eyebrow">Biomedical Engineering &middot; AI &middot; Medical Imaging</p>
 			<h1>{siteConfig.person.name}</h1>
-			<p class="lead">{siteConfig.site.description}</p>
+			<p class="affiliation">
+				PhD Candidate &mdash; Georgia Institute of Technology &amp; Emory University
+			</p>
+			<p class="lead">
+				Building AI tools that help predict cardiovascular risk from routine clinical data
+				&mdash; retinal images, ECGs, echocardiograms, and CT scans &mdash; bridging the gap
+				between machine learning research and clinical practice.
+			</p>
+
+			<p class="stats-line">
+				25+ publications &nbsp;&middot;&nbsp; 100+ citations &nbsp;&middot;&nbsp; 3 patents (1 allowed, 2 pending)
+			</p>
+
 			<div class="hero-links">
-				<a class="button" href={withBase('/research')}>Research</a>
-				<a class="button secondary" href={withBase('/projects')}>Projects</a>
-				<a class="button secondary" href={withBase('/cv')}>CV</a>
+				<a class="button" href={withBase('/research')}>Publications</a>
+				<a class="button secondary" href={withBase('/cv')}>CV / Resume</a>
+				<a class="button secondary" href={withBase('/contact')}>Contact</a>
 			</div>
-				<div class="contact-strip">
-					<a href={`mailto:${siteConfig.person.email}`}>{siteConfig.person.email}</a>
-					<span>|</span>
-					<a href={siteConfig.links.linkedin}>LinkedIn</a>
-					<span>|</span>
-					<a href={siteConfig.links.googleScholar}>Google Scholar</a>
-				</div>
+
+			<div class="contact-strip">
+				<a href={`mailto:${siteConfig.person.email}`}>{siteConfig.person.email}</a>
+				<span class="sep" aria-hidden="true">&middot;</span>
+				<a href={siteConfig.links.googleScholar} target="_blank" rel="noopener">Google Scholar</a>
+				<span class="sep" aria-hidden="true">&middot;</span>
+				<a href={siteConfig.links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+				<span class="sep" aria-hidden="true">&middot;</span>
+				<a href={siteConfig.links.orcid} target="_blank" rel="noopener">ORCID</a>
+			</div>
 		</div>
+
 		{headshot && (
 			<div class="hero-portrait">
 				<img src={headshot} alt={`Portrait of ${siteConfig.person.name}`} loading="eager" />
@@ -42,70 +58,226 @@ const keywords = siteConfig.seo?.keywords ?? [];
 		)}
 	</section>
 
-	<section class="section grid two">
-		<div class="card">
-			<p class="eyebrow">Current roles</p>
-			<h2>Research focus</h2>
-			<ul>
-				{roles.map((role) => (
-					<li>{role}</li>
-				))}
-			</ul>
-		</div>
-		<div class="card">
-			<p class="eyebrow">Core themes</p>
-			<h2>Applications</h2>
-			<div class="tag-list">
-				{keywords.map((keyword, index) => (
-					<span class={`tag ${index % 2 === 0 ? '' : 'alt'}`}>{keyword}</span>
-				))}
+	<!-- ── Research areas ────────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Research areas</p>
+		<h2>Focus</h2>
+		<div class="areas grid two">
+			<div class="area-card card">
+				<div class="area-header">
+					<div class="area-icon">
+						<!-- Eye / retinal -->
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
+							<circle cx="12" cy="12" r="2.5"/>
+						</svg>
+					</div>
+					<h3>Retinal AI for Systemic Disease</h3>
+				</div>
+				<p>
+					Repurposing routine fundus photographs to predict cardiovascular, renal, and
+					neurodegenerative risk &mdash; validated in &gt;800 CKD patients (CARE-CKD,
+					<em>Kidney360</em> 2025), supported by GRA Phase 1 commercialization award.
+				</p>
+				<div class="area-tags">
+					<span class="tag">Retinal imaging</span>
+					<span class="tag alt">CVD risk</span>
+					<span class="tag">CKD</span>
+				</div>
+			</div>
+			<div class="area-card card">
+				<div class="area-header">
+					<div class="area-icon">
+						<!-- Liver icon (SVG Repo) -->
+						<svg viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M460.425,67.349c-30.208-3.354-88.431-3.354-204.425-3.354c-230.852,0-256,31.087-256,153.6
+								c0,12.621,2.492,28.356,5.385,46.583c3.849,24.303,8.218,51.84,8.218,79.821c0,15.019-0.683,27.699-1.289,38.886
+								c-1.391,25.66-2.304,42.607,9.557,55.134c6.101,6.443,14.532,9.984,23.731,9.984c23.083,0,43.332-10.24,62.464-23.202
+								c4.821,8.994,11.537,14.063,16.358,16.282c4.975,2.278,10.428,3.396,16.102,3.396c10.778,0,22.246-4.053,32.375-11.75
+								c18.492-14.046,27.622-36.471,26.513-61.065c1.792-0.188,3.576-0.469,5.385-0.469c37.854,0,62.456-24.858,84.156-46.788
+								c17.34-17.519,35.26-35.635,60.74-44.126c33.766-11.255,51.567-35.917,68.787-59.767c6.46-8.943,13.133-18.193,20.71-26.778
+								c15.07-17.067,29.969-27.861,41.941-36.54C497.007,145.702,512,134.839,512,115.196C512,84.885,497.545,71.479,460.425,67.349z
+								M157.423,412.343c-7.697,5.828-16.7,8.073-22.323,5.453c-3.285-1.502-5.009-4.745-5.999-8.226
+								c0.887-0.674,1.783-1.34,2.671-2.005c14.447-10.948,28.433-21.427,42.556-28.331C173.397,392.794,167.526,404.664,157.423,412.343z
+								M204.8,345.596c-63.787,0-107.998,76.8-159.198,76.8c-14.123,0-6.4-27.204-6.4-78.404c0-51.2-13.602-100.796-13.602-126.396
+								c0-82.987,0.555-116.702,136.388-125.457c0.563,0.367,0.998,0.879,1.638,1.152c73.847,32.597,96.375,84.625,96.375,222.703
+								c0,0.324,0.162,0.597,0.188,0.922C243.601,332.983,227.243,345.596,204.8,345.596z M265.557,160.678
+								c-11.452-28.937-29.116-52.045-55.518-70.562c14.285-0.316,29.372-0.512,45.961-0.512c11.145-0.009,21.308-0.009,31.403,0
+								C279.569,108.514,271.113,133.628,265.557,160.678z M420.002,176.798c-28.109,31.838-41.387,66.859-78.404,79.198
+								c-15.642,5.214-28.604,13.099-40.055,22.025c-33.903-47.377-7.825-141.372,13.756-188.39
+								C485.794,89.835,486.4,92.045,486.4,115.196C486.4,128.457,453.598,138.731,420.002,176.798z"/>
+						</svg>
+					</div>
+					<h3>Opportunistic CT &amp; Hepatic Screening</h3>
+				</div>
+				<p>
+					Co-invented DeHFT/LARI: a deep learning system to quantify hepatic steatosis from
+					low-dose coronary calcium CT acquired for routine screening &mdash; validated on
+					700 patients, published in <em>Lancet eBioMedicine</em> 2025, underpins allowed
+					US patent.
+				</p>
+				<div class="area-tags">
+					<span class="tag">Liver CT</span>
+					<span class="tag alt">Opportunistic screening</span>
+					<span class="tag">Radiomics</span>
+				</div>
+			</div>
+			<div class="area-card card">
+				<div class="area-header">
+					<div class="area-icon">
+						<!-- Heart / cardiac -->
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+						</svg>
+					</div>
+					<h3>Spatiotemporal Cardiac Modeling</h3>
+				</div>
+				<p>
+					STAR-Echo: transformer-based spatiotemporal analysis of echocardiogram videos
+					for MACE prognosis in CKD patients (<em>MICCAI</em> 2023), underpinning a
+					pending patent on transformer-based spatiotemporal medical analysis.
+				</p>
+				<div class="area-tags">
+					<span class="tag">Echocardiography</span>
+					<span class="tag alt">Transformers</span>
+					<span class="tag">MACE prognosis</span>
+				</div>
+			</div>
+			<div class="area-card card">
+				<div class="area-header">
+					<div class="area-icon">
+						<!-- ECG waveform (P-QRS-T) -->
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<polyline points="1,12 4,12 5,9.5 6,12 7,12 8.5,5 9.5,19 10.5,12 11.5,12 12.5,9 13.5,12 18,12 23,12"/>
+						</svg>
+					</div>
+					<h3>ECG-Based Transplant Rejection</h3>
+				</div>
+				<p>
+					Non-invasive heart transplant rejection monitoring from longitudinal 12-lead ECGs
+					using foundation model embeddings &mdash; achieving 15.1% biopsy reduction at
+					95.9% sensitivity. Preliminary results accepted at ISHLT 2026.
+				</p>
+				<div class="area-tags">
+					<span class="tag">ECG</span>
+					<span class="tag alt">Transplant cardiology</span>
+					<span class="tag">Non-invasive</span>
+				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- ── Selected publications strip ──────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Selected publications</p>
+		<h2>Recent work</h2>
+		<div class="pub-strip">
+			<div class="pub-item">
+				<span class="pub-venue-tag">Kidney360 &middot; 2025</span>
+				<p class="pub-line">
+					Dhamdhere R, et al. &ldquo;Fundus Photograph-Derived Computational Features Predict
+					Risk of Cardiovascular Events in the Chronic Renal Insufficiency Cohort.&rdquo;
+				</p>
+			</div>
+			<div class="pub-item">
+				<span class="pub-venue-tag">Lancet eBioMedicine &middot; 2025</span>
+				<p class="pub-line">
+					Modanwal G, Dhamdhere R, et al. &ldquo;Opportunistic hepatic steatosis assessment
+					in low-dose coronary artery calcium CT using liver adipose-radiomic index (LARI).&rdquo;
+				</p>
+			</div>
+			<div class="pub-item">
+				<span class="pub-venue-tag">MICCAI &middot; 2023</span>
+				<p class="pub-line">
+					Dhamdhere R, et al. &ldquo;STAR-Echo: A Novel Biomarker for Prognosis of MACE Using
+					Spatiotemporal Analysis of Echocardiogram Videos in CKD Patients.&rdquo;
+				</p>
+			</div>
+		</div>
+		<a class="button secondary" href={withBase('/research')} style="margin-top: 1.25rem">
+			View all publications &rarr;
+		</a>
+	</section>
+
 </Layout>
 
 <style>
+	/* ── Hero ─────────────────────────────────────────────────── */
 	.hero {
 		display: grid;
-		gap: 2.5rem;
+		gap: 3rem;
 		align-items: center;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid var(--border);
 	}
 
 	.hero-text h1 {
-		font-size: clamp(2.6rem, 4vw, 3.6rem);
+		font-size: clamp(2.4rem, 5vw, 3.5rem);
+		margin-bottom: 0.25rem;
+	}
+
+	.affiliation {
+		font-size: 1rem;
+		font-weight: 500;
+		color: var(--muted);
+		margin-bottom: 1rem;
+		margin-top: 0;
 	}
 
 	.lead {
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		color: var(--muted);
+		max-width: 56ch;
+		margin-bottom: 0.75rem;
+		text-align: justify;
 	}
 
+	.stats-line {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--muted-light);
+		letter-spacing: 0.02em;
+		margin: 0 0 1.5rem;
+	}
+
+	/* Buttons */
 	.hero-links {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.8rem;
-		margin: 1.5rem 0 1rem;
+		gap: 0.75rem;
+		margin-bottom: 1.25rem;
 	}
 
+	/* Contact strip */
 	.contact-strip {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
-		font-weight: 600;
-		color: var(--muted-light);
+		gap: 0.4rem 0.75rem;
+		font-size: 0.875rem;
+		color: var(--muted);
 	}
 
 	.contact-strip a {
+		color: var(--muted);
+		font-weight: 500;
+		transition: color 0.15s ease;
+	}
+
+	.contact-strip a:hover {
+		color: var(--accent);
+	}
+
+	.sep {
 		color: var(--muted-light);
 	}
 
+	/* Portrait */
 	.hero-portrait {
-		position: relative;
-		border-radius: 24px;
+		border-radius: var(--radius);
 		overflow: hidden;
 		border: 1px solid var(--border);
 		box-shadow: var(--shadow);
-		max-width: 320px;
+		max-width: 300px;
 		justify-self: center;
 	}
 
@@ -115,26 +287,100 @@ const keywords = siteConfig.seo?.keywords ?? [];
 		height: auto;
 	}
 
-	.card ul {
-		margin: 1rem 0 0;
-		padding-left: 1.2rem;
-		color: var(--muted);
+	/* ── Research areas ───────────────────────────────────────── */
+	.areas {
+		margin-top: 1.25rem;
 	}
 
-	.tag-list {
+	.area-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+	}
+
+	.area-header {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+	}
+
+	.area-icon {
+		width: 30px;
+		height: 30px;
+		flex-shrink: 0;
+		color: var(--accent);
+	}
+
+	.area-icon svg {
+		width: 100%;
+		height: 100%;
+	}
+
+	.area-card h3 {
+		font-size: 1.1rem;
+		margin-bottom: 0;
+	}
+
+	.area-card p {
+		font-size: 0.9rem;
+		margin: 0;
+		flex: 1;
+		text-align: justify;
+	}
+
+	.area-tags {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1rem;
+		gap: 0.4rem;
+		margin-top: 0.5rem;
 	}
 
-	@media (min-width: 920px) {
+	/* ── Publications strip ───────────────────────────────────── */
+	.pub-strip {
+		display: grid;
+		gap: 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		margin-top: 1.25rem;
+		background: var(--surface);
+	}
+
+	.pub-item {
+		padding: 1rem 1.25rem;
+		border-bottom: 1px solid var(--border);
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	.pub-item:last-child {
+		border-bottom: none;
+	}
+
+	.pub-venue-tag {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.pub-line {
+		font-size: 0.9rem;
+		color: var(--muted);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Responsive */
+	@media (min-width: 900px) {
 		.hero {
-			grid-template-columns: 1.2fr 0.8fr;
+			grid-template-columns: 1.25fr 0.75fr;
 		}
 
 		.hero-portrait {
-			max-width: 360px;
+			max-width: 340px;
 		}
 	}
+
 </style>

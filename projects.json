@@ -2,34 +2,35 @@
   {
     "id": "arise-care-ckd",
     "title": "ARiSe / CARE-CKD",
-    "subtitle": "Retinal AI for cardiovascular screening in chronic kidney disease",
-    "timeframe": "2022-Present",
+    "subtitle": "Retinal vascular AI for cardiovascular risk stratification in chronic kidney disease",
+    "timeframe": "2022 – Present",
     "role": "Co-Investigator / Key Technical Lead",
     "status": "Active",
-    "summary": "A frugal AI pipeline that repurposes routine retinal fundus images to estimate cardiovascular risk, designed for non-specialist and resource-limited settings.",
+    "summary": "CKD patients face 5–10× elevated cardiovascular risk, yet standard risk calculators (e.g., AHA-PREVENT) were not designed for this population and perform poorly. ARiSe repurposes routine retinal fundus photographs — already captured at optometry visits — to extract vessel geometry and vascular texture features that encode systemic vascular disease burden. A multi-feature risk model built on these retinal biomarkers outperforms the PREVENT calculator (C-Index: 0.70 vs. 0.65) in a prospective cohort of 800 CKD patients (CARE-CKD study). The same retinal feature pipeline was also evaluated for Alzheimer's disease detection, demonstrating cross-disease applicability.",
     "highlights": [
-      "Clinical validation on ~800 CKD patients; published in Kidney360 (CARE-CKD).",
-      "Demonstrated cross-disease utility (retinal feature pipeline applied to Alzheimer's detection).",
-      "Supported by Georgia Research Alliance (GRA) Phase 1 commercialization funding ($50,000)."
+      "C-Index 0.70 vs. 0.65 (AHA-PREVENT) validated on 800 CKD patients",
+      "Cross-disease utility: retinal features applied to Alzheimer's detection",
+      "Published in Kidney360 (2025)"
     ],
-    "tags": ["Retina", "CVD", "CKD", "Risk stratification", "Translation"],
+    "tags": ["Retinal imaging", "Deep learning", "CVD risk", "CKD", "Vision transformer"],
     "links": [
-      { "label": "Kidney360 paper", "url": "https://journals.lww.com/kidney360/abstract/9900/fundus_photograph_derived_computational_features.740.aspx" }
+      { "label": "Kidney360 (2025)", "url": "https://journals.lww.com/kidney360/abstract/9900/fundus_photograph_derived_computational_features.740.aspx" }
     ]
   },
   {
     "id": "ecg-transplant-rejection",
-    "title": "Non-Invasive Transplant Rejection Monitoring",
-    "subtitle": "ECG-based rejection risk estimation to reduce reliance on biopsies",
-    "timeframe": "2024-Present",
-    "role": "Lead developer / researcher",
+    "title": "ECG-Based Transplant Rejection Surveillance",
+    "subtitle": "Non-invasive rejection monitoring from longitudinal 12-lead ECGs using foundation model embeddings",
+    "timeframe": "2024 – Present",
+    "role": "Lead Developer / Researcher",
     "status": "Active",
-    "summary": "AI-based ECG modeling to estimate heart transplant rejection risk non-invasively and reduce frequent endomyocardial biopsies.",
+    "summary": "Heart transplant recipients currently require 15–20 endomyocardial biopsies per year for rejection surveillance — an invasive procedure carrying procedural risk and significant cost. This project applies ECG foundation model embeddings to longitudinal 12-lead ECG series, learning subtle temporal patterns that precede rejection episodes. The approach achieves 15.1% biopsy reduction at 95.9% sensitivity, compared to 6.9% with the standard clinical decision rule, and identifies a 3× elevated 90-day rejection hazard ratio in flagged high-risk patients.",
     "highlights": [
-      "Preliminary validation accepted for presentation at ISHLT 2026.",
-      "Designed for integration into routine post-transplant clinical workflows."
+      "15.1% biopsy reduction vs. 6.9% clinical baseline at 95.9% sensitivity",
+      "3× elevated 90-day rejection hazard ratio in high-risk group",
+      "Accepted for presentation at ISHLT 2026"
     ],
-    "tags": ["ECG", "Transplant", "Risk prediction", "Clinical ML"],
+    "tags": ["ECG", "Foundation models", "Longitudinal modeling", "Transplant cardiology", "Survival analysis"],
     "links": [
       { "label": "ISHLT 2026 abstract" }
     ]
@@ -37,53 +38,54 @@
   {
     "id": "opportunistic-liver-screening-lari",
     "title": "Opportunistic Liver Screening (DeHFT / LARI)",
-    "subtitle": "Hepatic steatosis assessment from low-dose CT originally acquired for coronary calcium scoring",
-    "timeframe": "2020-2022",
-    "role": "Research Assistant / technical co-inventor",
+    "subtitle": "Hepatic steatosis quantification from low-dose cardiac CT using deep learning and radiomics",
+    "timeframe": "2020 – 2022",
+    "role": "Research Assistant / Technical Co-Inventor",
     "status": "Completed",
-    "summary": "Deep learning and radiomics pipeline for liver fat/steatosis assessment from low-dose CT acquired for other indications (opportunistic screening).",
+    "summary": "Non-alcoholic fatty liver disease affects ~25% of the global population yet is rarely screened for in asymptomatic patients. Millions of low-dose CT scans are acquired annually for coronary calcium scoring — a routine cardiovascular test — while the liver, clearly visible in the same scan, is routinely ignored. DeHFT/LARI is a deep learning and radiomics pipeline that automatically quantifies liver fat from these incidentally acquired scans, enabling opportunistic NAFLD screening at no additional imaging cost or radiation dose. Validated across 700+ patients in multi-site cardiovascular outcomes cohorts; results published in Lancet eBioMedicine (2025) and underpinning an allowed US patent.",
     "highlights": [
-      "Validated on ~700 patients with strong correlation to reference standards.",
-      "Underpins an allowed US patent on deep-learning-based hepatic fat assessment.",
-      "Extended to LARI study published in Lancet eBioMedicine."
+      "Validated on 700+ patients across multi-site cardiovascular outcomes cohorts",
+      "Published in Lancet eBioMedicine (2025)",
+      "US Patent allowed (US 20240420320 A1)"
     ],
-    "tags": ["CT", "Radiomics", "Opportunistic screening", "Hepatology"],
+    "tags": ["CT imaging", "Radiomics", "Liver segmentation", "Deep learning", "Opportunistic screening"],
     "links": [
-      { "label": "Patent publication (US 20240420320 A1)", "url": "https://patents.google.com/patent/US20240420320A1/en" },
-      { "label": "Lancet eBioMedicine paper", "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00497-2/fulltext" }
+      { "label": "US Patent (US 20240420320 A1)", "url": "https://patents.google.com/patent/US20240420320A1/en" },
+      { "label": "Lancet eBioMedicine", "url": "https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(22)00497-2/fulltext" }
     ]
   },
   {
     "id": "star-echo",
     "title": "STAR-Echo",
-    "subtitle": "Spatiotemporal modeling of echocardiogram videos for MACE prognosis in CKD",
-    "timeframe": "2022-2023",
-    "role": "Lead developer / researcher",
+    "subtitle": "Spatiotemporal echocardiography analysis for MACE prognosis in CKD patients",
+    "timeframe": "2022 – 2023",
+    "role": "Lead Developer / Researcher",
     "status": "Completed",
-    "summary": "Spatiotemporal analysis of echocardiogram videos to derive prognostic signatures for major adverse cardiovascular events (MACE) in CKD.",
+    "summary": "Standard echocardiography reports reduce a full cardiac cycle to a handful of static measurements, discarding the temporal dynamics — how the heart contracts and relaxes over time — that encode important prognostic information. STAR-Echo is a spatiotemporal biomarker derived by fusing Vision Transformer-based sequence embeddings with handcrafted radiomics features extracted from echo video clips. Trained on CKD patients with longitudinal follow-up, it achieves AUC 0.71 for predicting major adverse cardiovascular events (MACE) and produces interpretable spatial attention maps identifying the cardiac regions driving the prediction.",
     "highlights": [
-      "Accepted/presented at MICCAI 2023.",
-      "Associated transformer-based spatiotemporal patent application (US 20250118435 A1)."
+      "AUC 0.71 for MACE prediction in CKD patients",
+      "Vision Transformer + radiomics fusion architecture with interpretable attention maps",
+      "Published at MICCAI 2023 | Pending US Patent (US 20250118435 A1)"
     ],
-    "tags": ["Echocardiography", "Video ML", "Transformers", "CKD", "MACE"],
+    "tags": ["Echocardiography", "Vision transformer", "Spatiotemporal learning", "Radiomics", "MACE prognosis"],
     "links": [
-      { "label": "Patent publication (US 20250118435 A1)", "url": "https://patents.google.com/patent/US20250118435A1/en" },
-      { "label": "MICCAI 2023 paper", "url": "https://link.springer.com/chapter/10.1007/978-3-031-43987-2_28" }
+      { "label": "MICCAI 2023", "url": "https://link.springer.com/chapter/10.1007/978-3-031-43987-2_28" },
+      { "label": "US Patent Application (US 20250118435 A1)", "url": "https://patents.google.com/patent/US20250118435A1/en" }
     ]
   },
   {
     "id": "gsab-leadership",
-    "title": "Graduate Student Advocacy Board (GSAB) Leadership",
-    "subtitle": "Co-President, BME (Georgia Tech/Emory)",
-    "timeframe": "2024-Present",
+    "title": "Graduate Student Advocacy Board",
+    "subtitle": "Co-President, BME Department — Georgia Tech & Emory University",
+    "timeframe": "2024 – Present",
     "role": "Co-President",
     "status": "Active",
-    "summary": "Student leadership focused on improving PhD training experience, mentoring, and addressing TA/health insurance concerns.",
+    "summary": "As Co-President of the BME Graduate Student Advocacy Board, I represent PhD students in policy and welfare discussions with department leadership at Georgia Tech and Emory. Focus areas include TA compensation structures, health insurance access, and PhD program transparency.",
     "highlights": [
-      "Organized student-faculty townhalls on PhD training concerns.",
-      "Helped restart Mock Quals mentorship pairing senior and junior PhD students.",
-      "Created avenues to discuss TA and health insurance concerns."
+      "Organized student-faculty townhalls on PhD training and career development",
+      "Restarted the Mock Quals mentorship program pairing senior and junior PhD students",
+      "Student voice on TA compensation and health insurance policy"
     ],
-    "tags": ["Leadership", "Service", "Mentorship"]
+    "tags": ["Leadership", "Advocacy", "Mentorship"]
   }
 ]

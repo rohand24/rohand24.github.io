@@ -1,6 +1,4 @@
 ---
-import fs from 'node:fs/promises';
-import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../data/siteConfig.js';
 
@@ -13,62 +11,74 @@ const withBase = (path) => {
 	return `${base}${trimmed}`;
 };
 
-const resumePath = new URL('../../resume.md', import.meta.url);
-const resumeText = await fs.readFile(resumePath, 'utf-8');
-const markdownProcessor = await createMarkdownProcessor();
-const { code: resumeHtml } = await markdownProcessor.render(resumeText);
-const cvDownload = siteConfig.links.cvDownload ?? '/cv/CV_RohanDhamdhereJan2026.pdf';
-const docxDownload = cvDownload.replace(/\.pdf$/i, '.docx');
+const cvDownload     = siteConfig.links.cvDownload ?? '/cv/CV_RohanDhamdhereJan2026.pdf';
+const resumeDownload = siteConfig.links.resumeDownload ?? '/cv/Resume_RohanDhamdhere.pdf';
 ---
 
 <Layout title="CV">
 	<section class="section">
-		<p class="eyebrow">Curriculum Vitae</p>
-		<h1>Resume and downloadable CV</h1>
-		<p>
-			The CV below is rendered from <code>resume.md</code>. Download the full document using
-			the links.
-		</p>
-		<div class="download-links">
-			<a class="button" href={withBase(cvDownload)} download>Download PDF</a>
-			<a class="button secondary" href={withBase(docxDownload)} download>Download DOCX</a>
-		</div>
-	</section>
+		<p class="eyebrow">Curriculum Vitae &amp; Resume</p>
+		<h1>{siteConfig.person.name}</h1>
+		<p class="cv-subtitle">PhD Candidate, Biomedical Engineering &mdash; Georgia Tech &amp; Emory University</p>
 
-	<section class="section card cv-content">
-		<div set:html={resumeHtml} />
+		<div class="doc-grid">
+			<div class="doc-block">
+				<p class="doc-label">CV</p>
+				<p class="doc-desc">Full-length academic CV including patents, commercialization funding, and complete publication list.</p>
+				<a class="button" href={withBase(cvDownload)} download>&#8595;&ensp;Download PDF</a>
+			</div>
+
+			<div class="doc-block">
+				<p class="doc-label">Resume</p>
+				<p class="doc-desc">Concise industry resume highlighting quantitative results, deep learning methods, and R&amp;D experience.</p>
+				<a class="button" href={withBase(resumeDownload)} download>&#8595;&ensp;Download PDF</a>
+			</div>
+		</div>
 	</section>
 </Layout>
 
 <style>
-	.download-links {
+	.cv-subtitle {
+		font-size: 1rem;
+		color: var(--muted);
+		margin-top: 0.25rem;
+		margin-bottom: 1.75rem;
+	}
+
+	.doc-grid {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.doc-block {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 1.25rem 1.5rem;
+		background: var(--surface);
 		display: flex;
-		flex-wrap: wrap;
-		gap: 0.8rem;
-		margin-top: 1.5rem;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
 
-	.cv-content :global(h1) {
-		font-size: 1.8rem;
-		margin-top: 0;
+	.doc-label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin: 0;
 	}
 
-	.cv-content :global(h2) {
-		margin-top: 1.8rem;
-		font-size: 1.4rem;
-	}
-
-	.cv-content :global(h3) {
-		margin-top: 1.4rem;
-		font-size: 1.15rem;
-	}
-
-	.cv-content :global(p) {
+	.doc-desc {
+		font-size: 0.875rem;
 		color: var(--muted);
+		margin: 0;
+		line-height: 1.55;
 	}
 
-	.cv-content :global(ul) {
-		padding-left: 1.2rem;
-		color: var(--muted);
+	@media (min-width: 600px) {
+		.doc-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
 	}
 </style>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { loadPublications } from '../data/publications.js';
+import { siteConfig } from '../data/siteConfig.js';
 
 const publications = await loadPublications();
 const grouped = publications.reduce((acc, pub) => {
@@ -12,34 +13,47 @@ const grouped = publications.reduce((acc, pub) => {
 
 const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
 
-const formatAuthors = (author) =>
-	author ? author.replace(/\s+/g, ' ').replace(/\s+and\s+/gi, ', ') : '';
+const highlightAuthor = (author) => {
+	if (!author) return '';
+	const normalized = author.replace(/\s+/g, ' ').replace(/\s+and\s+/gi, ', ');
+	return normalized.replace(/(Dhamdhere[\s,RN.]+)/g, '<strong>$1</strong>');
+};
 ---
 
 <Layout title="Research">
 	<section class="section">
 		<p class="eyebrow">Research</p>
-		<h1>Publications & scholarly output</h1>
+		<h1>Publications &amp; scholarly output</h1>
 		<p>
-			Publications are sourced directly from <code>publications.bib</code> and listed in
-			descending order.
+			Latest publications available on
+			<a class="scholar-link" href={siteConfig.links.googleScholar} target="_blank" rel="noopener noreferrer">
+				Google Scholar &rarr;
+			</a>
 		</p>
 	</section>
 
 	{years.map((year) => (
-		<section class="section">
+		<section class="section year-section">
 			<h2 class="year-heading">{year}</h2>
 			<div class="pub-list">
 				{grouped[year].map((pub) => (
-					<article class="card pub-card">
+					<article class="pub-card">
+						<div class="pub-meta-row">
+							<span class="pub-venue-tag">{pub.venue || pub.type}</span>
+							{pub.year && <span class="pub-year">{pub.year}</span>}
+						</div>
 						<p class="pub-title">{pub.title}</p>
-						<p class="pub-authors">{formatAuthors(pub.author)}</p>
-						<p class="pub-venue">
-							{pub.venue}
-							{pub.venue && pub.year ? ' - ' : ''}
-							{pub.year || ''}
-						</p>
-						<span class="tag alt">{pub.type}</span>
+						<p class="pub-authors" set:html={highlightAuthor(pub.author)} />
+						{pub.doi && (
+							<a
+								class="pub-doi"
+								href={`https://doi.org/${pub.doi}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								DOI: {pub.doi} &rarr;
+							</a>
+						)}
 					</article>
 				))}
 			</div>
@@ -48,35 +62,107 @@ const formatAuthors = (author) =>
 </Layout>
 
 <style>
+	.scholar-link {
+		color: var(--accent);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+	}
+
+	.scholar-link:hover {
+		color: var(--accent-dark);
+	}
+
+	.year-section {
+		margin-top: 2rem;
+	}
+
 	.year-heading {
-		font-size: 1.6rem;
+		font-size: 1.5rem;
 		margin-bottom: 1rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--border);
+		color: var(--ink);
 	}
 
 	.pub-list {
-		display: grid;
-		gap: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		background: var(--surface);
 	}
 
 	.pub-card {
-		display: grid;
-		gap: 0.5rem;
+		padding: 1.1rem 1.4rem;
+		border-bottom: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		transition: background 0.15s ease;
+	}
+
+	.pub-card:last-child {
+		border-bottom: none;
+	}
+
+	.pub-card:hover {
+		background: var(--bg);
+	}
+
+	.pub-meta-row {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
+	.pub-venue-tag {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.pub-year {
+		font-size: 0.78rem;
+		font-weight: 500;
+		color: var(--muted-light);
 	}
 
 	.pub-title {
-		font-weight: 700;
+		font-weight: 600;
 		color: var(--ink);
 		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.45;
 	}
 
 	.pub-authors {
 		margin: 0;
 		color: var(--muted);
+		font-size: 0.875rem;
+		line-height: 1.5;
 	}
 
-	.pub-venue {
-		margin: 0;
-		color: var(--muted-light);
-		font-size: 0.95rem;
+	.pub-authors :global(strong) {
+		color: var(--ink);
+		font-weight: 600;
+	}
+
+	.pub-doi {
+		font-size: 0.8rem;
+		color: var(--accent);
+		font-weight: 500;
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		margin-top: 0.1rem;
+		width: fit-content;
+	}
+
+	.pub-doi:hover {
+		color: var(--accent-dark);
 	}
 </style>

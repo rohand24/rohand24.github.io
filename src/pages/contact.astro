@@ -6,7 +6,7 @@ import { siteConfig } from '../data/siteConfig.js';
 <Layout title="Contact">
 	<section class="section">
 		<p class="eyebrow">Contact</p>
-		<h1>Let's connect</h1>
+		<h1>Get in touch</h1>
 		<p>
 			Email is the fastest way to reach me. I also share updates via GitHub, LinkedIn, and
 			Google Scholar.
@@ -16,16 +16,24 @@ import { siteConfig } from '../data/siteConfig.js';
 	<section class="section grid two">
 		<div class="card contact-card">
 			<p class="eyebrow">Email</p>
-			<h2>{siteConfig.person.email}</h2>
-			<a class="button" href={`mailto:${siteConfig.person.email}`}>Send email</a>
+			<div class="email-list">
+				<div class="email-row">
+					<span class="email-label">Work</span>
+					<a href={`mailto:${siteConfig.person.email}`}>{siteConfig.person.email}</a>
+				</div>
+				<div class="email-row">
+					<span class="email-label">Personal</span>
+					<a href="mailto:rndhamdhere@gmail.com">rndhamdhere@gmail.com</a>
+				</div>
+			</div>
 		</div>
 		<div class="card contact-card">
 			<p class="eyebrow">Links</p>
 			<div class="contact-links">
-				<a href={siteConfig.links.linkedin}>LinkedIn</a>
-				<a href={siteConfig.links.googleScholar}>Google Scholar</a>
-				<a href={siteConfig.links.github}>GitHub</a>
-				{siteConfig.links.orcid && <a href={siteConfig.links.orcid}>ORCID</a>}
+				<a href={siteConfig.links.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+				<a href={siteConfig.links.googleScholar} target="_blank" rel="noopener">Google Scholar</a>
+				<a href={siteConfig.links.github} target="_blank" rel="noopener">GitHub</a>
+				{siteConfig.links.orcid && <a href={siteConfig.links.orcid} target="_blank" rel="noopener">ORCID</a>}
 			</div>
 		</div>
 	</section>
@@ -37,6 +45,38 @@ import { siteConfig } from '../data/siteConfig.js';
 		gap: 1rem;
 	}
 
+	.email-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.email-row {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+	}
+
+	.email-label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted-light);
+		min-width: 4.5rem;
+	}
+
+	.email-row a {
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: var(--muted);
+		transition: color 0.15s ease;
+	}
+
+	.email-row a:hover {
+		color: var(--accent);
+	}
+
 	.contact-links {
 		display: grid;
 		gap: 0.6rem;
@@ -46,6 +86,8 @@ import { siteConfig } from '../data/siteConfig.js';
 
 	.contact-links a {
 		color: var(--muted);
+		font-size: 0.95rem;
+		transition: color 0.15s ease;
 	}
 
 	.contact-links a:hover {

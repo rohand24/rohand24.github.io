@@ -22,6 +22,12 @@ const faviconHref = faviconPath.startsWith('/')
 		<meta name="description" content={metaDescription} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<div class="page">
@@ -35,20 +41,28 @@ const faviconHref = faviconPath.startsWith('/')
 </html>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 	:global(:root) {
 		color-scheme: light;
-		--ink: #14120f;
-		--muted: #4b4a45;
-		--muted-light: #6d6b65;
-		--accent: #f45d48;
-		--accent-2: #1c4cff;
-		--accent-3: #f4b942;
-		--surface: rgba(255, 255, 255, 0.9);
-		--border: rgba(20, 18, 15, 0.1);
-		--shadow: 0 18px 40px rgba(12, 12, 12, 0.12);
-		--radius: 18px;
+
+		/* — Ink & text — */
+		--ink:         #0f172a;   /* slate-900 */
+		--muted:       #475569;   /* slate-600 */
+		--muted-light: #94a3b8;   /* slate-400 */
+
+		/* — Brand accents — */
+		--accent:      #0f766e;   /* teal-700  — primary CTA, links */
+		--accent-dark: #0d5f58;   /* teal-800  — hover state */
+		--accent-soft: #f0fdfa;   /* teal-50   — tag fill */
+		--accent-2:    #1e40af;   /* blue-800  — secondary accent */
+		--accent-2-soft: #eff6ff; /* blue-50 */
+
+		/* — Surfaces — */
+		--surface:     #ffffff;
+		--bg:          #f8fafc;   /* slate-50 */
+		--border:      rgba(15, 23, 42, 0.09);
+		--shadow-sm:   0 1px 3px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.05);
+		--shadow:      0 2px 8px rgba(15, 23, 42, 0.07), 0 8px 24px rgba(15, 23, 42, 0.07);
+		--radius:      10px;
 	}
 
 	:global(html) {
@@ -58,9 +72,11 @@ const faviconHref = faviconPath.startsWith('/')
 	:global(body) {
 		margin: 0;
 		min-height: 100%;
-		font-family: 'Space Grotesk', sans-serif;
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 1rem;
+		line-height: 1.6;
 		color: var(--ink);
-		background: radial-gradient(circle at top left, #f9e7d2 0%, #f4efe5 45%, #f6f1ea 100%);
+		background: var(--bg);
 	}
 
 	:global(*) {
@@ -72,125 +88,153 @@ const faviconHref = faviconPath.startsWith('/')
 		text-decoration: none;
 	}
 
+	/* Headings use the serif display face */
 	:global(h1),
 	:global(h2),
 	:global(h3) {
-		font-family: 'Fraunces', serif;
+		font-family: 'DM Serif Display', Georgia, serif;
+		font-weight: 400; /* DM Serif Display is naturally bold at 400 */
 		margin: 0 0 0.5rem;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.01em;
+		color: var(--ink);
+		line-height: 1.2;
+	}
+
+	:global(h4),
+	:global(h5),
+	:global(h6) {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-weight: 600;
+		margin: 0 0 0.4rem;
+		color: var(--ink);
 	}
 
 	:global(p) {
 		color: var(--muted);
-		line-height: 1.65;
+		line-height: 1.7;
 		margin: 0 0 1rem;
 	}
 
+	:global(code) {
+		font-family: 'IBM Plex Mono', 'Fira Code', monospace;
+		font-size: 0.875em;
+		background: var(--accent-soft);
+		padding: 0.1em 0.4em;
+		border-radius: 4px;
+		color: var(--accent);
+	}
+
+	/* ── Page wrapper ──────────────────────────────────────── */
 	.page {
 		position: relative;
 		min-height: 100vh;
-		isolation: isolate;
-	}
-
-	.page::before,
-	.page::after {
-		content: '';
-		position: absolute;
-		border-radius: 999px;
-		filter: blur(0px);
-		opacity: 0.75;
-		z-index: -1;
-	}
-
-	.page::before {
-		width: 360px;
-		height: 360px;
-		top: -120px;
-		right: 10%;
-		background: radial-gradient(circle, rgba(244, 185, 66, 0.5), transparent 70%);
-	}
-
-	.page::after {
-		width: 420px;
-		height: 420px;
-		bottom: -160px;
-		left: -120px;
-		background: radial-gradient(circle, rgba(28, 76, 255, 0.25), transparent 70%);
 	}
 
 	main {
-		padding: 2rem 1.5rem 3rem;
-		max-width: 1120px;
+		padding: 2rem 1.5rem 4rem;
+		max-width: 1100px;
 		margin: 0 auto;
 	}
 
+	/* ── Utility classes ───────────────────────────────────── */
 	:global(.section) {
-		margin: 3.5rem 0;
+		margin: 3rem 0;
 	}
 
+	/* Eyebrow: small uppercase label above a heading */
 	:global(.eyebrow) {
 		text-transform: uppercase;
-		font-size: 0.75rem;
-		letter-spacing: 0.2em;
-		color: var(--muted-light);
+		font-size: 0.72rem;
+		letter-spacing: 0.14em;
+		font-weight: 600;
+		color: var(--accent);
+		margin-bottom: 0.35rem;
 	}
 
+	/* Primary button — teal */
 	:global(.button) {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1.3rem;
-		border-radius: 999px;
+		gap: 0.45rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 6px;
+		font-family: 'Inter', sans-serif;
 		font-weight: 600;
+		font-size: 0.875rem;
 		background: var(--accent);
-		color: #fffaf5;
-		box-shadow: var(--shadow);
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		color: #ffffff;
+		letter-spacing: 0.01em;
+		transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+		box-shadow: 0 1px 4px rgba(15, 118, 110, 0.3);
 	}
 
 	:global(.button:hover) {
-		transform: translateY(-2px);
-		box-shadow: 0 20px 45px rgba(12, 12, 12, 0.16);
+		background: var(--accent-dark);
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
 	}
 
+	/* Secondary button — outlined */
 	:global(.button.secondary) {
-		background: #fffaf5;
+		background: var(--surface);
 		color: var(--ink);
 		border: 1px solid var(--border);
-		box-shadow: none;
+		box-shadow: var(--shadow-sm);
 	}
 
+	:global(.button.secondary:hover) {
+		background: var(--bg);
+		border-color: rgba(15, 23, 42, 0.2);
+		transform: translateY(-1px);
+		box-shadow: var(--shadow);
+	}
+
+	/* Card */
 	:global(.card) {
 		background: var(--surface);
 		border-radius: var(--radius);
 		border: 1px solid var(--border);
-		padding: 1.5rem;
-		box-shadow: var(--shadow);
+		padding: 1.5rem 1.75rem;
+		box-shadow: var(--shadow-sm);
 	}
 
+	/* Tags */
 	:global(.tag) {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.2rem 0.7rem;
-		border-radius: 999px;
-		background: rgba(244, 185, 66, 0.25);
-		font-size: 0.75rem;
+		padding: 0.2rem 0.65rem;
+		border-radius: 4px;
+		background: var(--accent-soft);
+		font-size: 0.73rem;
 		font-weight: 600;
-		color: var(--ink);
+		letter-spacing: 0.02em;
+		color: var(--accent);
+		border: 1px solid rgba(15, 118, 110, 0.15);
 	}
 
 	:global(.tag.alt) {
-		background: rgba(28, 76, 255, 0.12);
+		background: var(--accent-2-soft);
+		color: var(--accent-2);
+		border-color: rgba(30, 64, 175, 0.15);
 	}
 
+	/* Grid */
 	:global(.grid) {
 		display: grid;
 		gap: 1.5rem;
 	}
 
+	/* Divider line */
+	:global(.divider) {
+		border: none;
+		border-top: 1px solid var(--border);
+		margin: 2rem 0;
+	}
+
+	/* Responsive */
 	@media (min-width: 720px) {
 		main {
-			padding: 3.5rem 2rem 4rem;
+			padding: 3rem 2rem 5rem;
 		}
 
 		:global(.grid.two) {

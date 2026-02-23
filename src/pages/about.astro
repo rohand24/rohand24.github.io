@@ -1,59 +1,342 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../data/siteConfig.js';
+
+const base = import.meta.env.BASE_URL;
+const withBase = (path) => {
+	if (path === '/') return base;
+	const trimmed = path.replace(/^\//, '');
+	return `${base}${trimmed}`;
+};
 ---
 
 <Layout title="About">
+
+	<!-- ── About Me ─────────────────────────────────────────── -->
 	<section class="section">
-		<p class="eyebrow">About</p>
-		<h1>Translational research and frugal innovation</h1>
-		<p>
-			{siteConfig.site.description}
+		<p class="eyebrow">About Me</p>
+		<h1>{siteConfig.person.name}</h1>
+		<p class="justified">
+			I&rsquo;m Rohan Dhamdhere, a PhD Candidate in Biomedical Engineering in the Georgia
+			Tech&ndash;Emory program. What motivates me most is closing the gap between what AI can
+			do in a paper and what it can do for a patient &mdash; building tools that are not just
+			accurate but interpretable, deployable, and worth a clinician&rsquo;s trust. I love
+			building translational tools, collaborating with clinicians and engineers across
+			disciplines, and turning complex modeling problems into clear, testable products that
+			can actually work in a hospital.
 		</p>
-		<p>
-			My work centers on turning routine clinical data into scalable risk stratification tools.
-			I focus on cardiovascular and systemic disease detection from retinal imaging, ECG, and
-			echocardiography, with an emphasis on deployment in resource-limited settings.
+		<p class="justified">
+			Outside of research, you&rsquo;ll find me running, debating whether the Packers&rsquo;
+			secondary will ever be elite again, following Indian cricket, or hiking through US
+			national parks.
 		</p>
 	</section>
 
-	<section class="section grid two">
-		<div class="card">
-			<p class="eyebrow">Education</p>
-			<h2>Training</h2>
-			<ul>
-				<li>PhD, Biomedical Engineering (Georgia Tech & Emory) - Expected 2026</li>
-				<li>MS, Computer Engineering - Rochester Institute of Technology, 2018</li>
-				<li>BE, Electronics & Telecommunication - Savitribai Phule Pune University, 2015</li>
-			</ul>
-		</div>
-		<div class="card">
-			<p class="eyebrow">Leadership</p>
-			<h2>Service and mentoring</h2>
-			<ul>
-				<li>Co-President, Graduate Student Advocacy Board (BME, Georgia Tech/Emory).</li>
-				<li>Mentored students in bioengineering statistics and reproducible analysis.</li>
-				<li>Featured innovator in Emory Health Digest (Summer 2025).</li>
-			</ul>
+	<hr class="divider" />
+
+	<!-- ── About My Research ─────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">About My Research</p>
+		<h2>Multimodal AI for clinical decision support</h2>
+		<p class="justified">
+			I am a PhD Candidate in Biomedical Engineering at Georgia Tech &amp; Emory University,
+			specializing in translational AI systems that turn routine clinical data &mdash; retinal
+			fundus photographs, 12-lead ECGs, echocardiogram videos, and low-dose CT &mdash; into
+			validated cardiovascular risk tools. My work spans the full pipeline from medical image
+			preprocessing and deep feature extraction through risk model development, longitudinal
+			data fusion, and validation in real-world clinical cohorts.
+		</p>
+		<p class="justified">
+			My models have been validated in cohorts exceeding 1,500 patients across cardiology,
+			nephrology, hepatology, and transplant medicine. In the CARE-CKD study
+			(<em>Kidney360</em>, 2025), a retinal vascular AI model I developed outperformed the
+			AHA-PREVENT cardiovascular risk calculator (C-Index: 0.70 vs. 0.65) in 800 CKD patients
+			and received a Georgia Research Alliance translational award for clinical deployment.
+			A CT-based liver fat quantification pipeline validated in 700+ patients across multi-site
+			outcomes cohorts underpins an allowed US patent and was published in
+			<em>Lancet eBioMedicine</em> (2025). For non-invasive transplant rejection monitoring,
+			an ECG foundation model approach achieved 15.1% biopsy reduction at 95.9% sensitivity
+			&mdash; more than doubling the 6.9% clinical baseline. During a 2025 R&amp;D internship
+			at Alcon, I built a vision-language model prototype fusing corneal tomography, clinical
+			notes, and patient lifestyle data for personalized intraocular lens recommendation in
+			cataract surgery.
+		</p>
+		<p class="justified">
+			Technically, I work across vision transformers, ECG and image foundation models, graph
+			neural networks, radiomics pipelines, survival analysis frameworks, and vision-language
+			models, with particular experience designing multimodal fusion architectures that combine
+			imaging features, structured clinical variables, and longitudinal physiological signals
+			to produce interpretable risk scores validated against real-world clinical endpoints.
+		</p>
+	</section>
+
+	<hr class="divider" />
+
+	<!-- ── Research & IP ─────────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Research &amp; intellectual property</p>
+		<h2>Translational track record</h2>
+		<div class="grid two" style="margin-top:1.25rem">
+			<div class="card ip-card">
+				<div class="ip-label">Patent &mdash; Allowed</div>
+				<p class="ip-title">Deep-learning-based hepatic fat assessment</p>
+				<p class="ip-meta">
+					Modanwal G, Al-Kindi S, Walker J, <strong>Dhamdhere R</strong>, Rajagopalan S,
+					Madabhushi A &middot; US 20240420320 A1 &middot; Notice of Allowance Oct 2025
+				</p>
+			</div>
+			<div class="card ip-card">
+				<div class="ip-label">Patent &mdash; Pending</div>
+				<p class="ip-title">Medical analysis using spatiotemporal analysis and transformer-based models</p>
+				<p class="ip-meta">
+					<strong>Dhamdhere R</strong>, Al-Kindi S, Modanwal G, Madabhushi A &middot;
+					US 20250118435 A1 &middot; Filed Sept 2024
+				</p>
+			</div>
+			<div class="card ip-card">
+				<div class="ip-label">Patent &mdash; Pending</div>
+				<p class="ip-title">Systems for Cardiovascular Risk Assessment Using Vessel Geometry (ARiSe)</p>
+				<p class="ip-meta">
+					<strong>Dhamdhere R</strong>, Madabhushi A &middot; Covers core retinal
+					vessel geometry-based risk assessment technology
+				</p>
+			</div>
+			<div class="card ip-card">
+				<div class="ip-label">Commercialization funding</div>
+				<p class="ip-title">$50,000 GRA Phase 1 Grant &mdash; ARiSe</p>
+				<p class="ip-meta">
+					Georgia Research Alliance &middot; 2025 &middot;
+					Co-Investigator / Key Technical Lead. Supports prototype development of a
+					retinal risk assessment tool for optometry and nephrology clinic workflows.
+				</p>
+			</div>
 		</div>
 	</section>
 
-	<section class="section card">
-		<p class="eyebrow">Clinical translation</p>
-		<h2>From research to deployment</h2>
-		<p>
-			I have helped advance AI-driven diagnostics toward clinical use through commercialization
-			funding, intellectual property filings, and clinical validation in cohorts spanning
-			cardiology, nephrology, and hepatology. Current efforts focus on building deployable
-			prototypes for optometry and specialty clinic workflows.
-		</p>
+	<hr class="divider" />
+
+	<!-- ── Selected publications ─────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Selected publications</p>
+		<h2>Recent work</h2>
+		<div class="pub-strip">
+			<div class="pub-item">
+				<span class="pub-venue-tag">Kidney360 &middot; 2025</span>
+				<p class="pub-line">
+					Dhamdhere R, et al. &ldquo;Fundus Photograph-Derived Computational Features Predict
+					Risk of Cardiovascular Events in the Chronic Renal Insufficiency Cohort.&rdquo;
+				</p>
+			</div>
+			<div class="pub-item">
+				<span class="pub-venue-tag">Lancet eBioMedicine &middot; 2025</span>
+				<p class="pub-line">
+					Modanwal G, Dhamdhere R, et al. &ldquo;Opportunistic hepatic steatosis assessment
+					in low-dose coronary artery calcium CT using liver adipose-radiomic index (LARI).&rdquo;
+				</p>
+			</div>
+			<div class="pub-item">
+				<span class="pub-venue-tag">MICCAI &middot; 2023</span>
+				<p class="pub-line">
+					Dhamdhere R, et al. &ldquo;STAR-Echo: A Novel Biomarker for Prognosis of MACE Using
+					Spatiotemporal Analysis of Echocardiogram Videos in CKD Patients.&rdquo;
+				</p>
+			</div>
+		</div>
+		<a class="button secondary" href={withBase('/research')} style="margin-top:1.25rem; display:inline-flex;">
+			View all publications &rarr;
+		</a>
 	</section>
+
+	<hr class="divider" />
+
+	<!-- ── Education ─────────────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Education</p>
+		<h2>Training</h2>
+		<div class="edu-list" style="margin-top:1rem">
+			<div class="edu-item">
+				<span class="edu-year">2022 &ndash; 2026</span>
+				<div class="edu-detail">
+					<strong>PhD, Biomedical Engineering</strong> &mdash; Georgia Institute of Technology
+					&amp; Emory University
+					<p class="edu-note">Focus: AI-driven cardiovascular risk stratification and clinical translation of medical AI. Advisor: Dr. Anant Madabhushi. GPA: 4.0.</p>
+				</div>
+			</div>
+			<div class="edu-item">
+				<span class="edu-year">2016 &ndash; 2018</span>
+				<div class="edu-detail">
+					<strong>MS, Computer Engineering</strong> &mdash; Rochester Institute of Technology
+					<p class="edu-note">GPA: 3.90 &middot; Graduate Scholarship Recipient &middot; Thesis: Meta Learning for Graph Neural Networks</p>
+				</div>
+			</div>
+			<div class="edu-item">
+				<span class="edu-year">2015</span>
+				<div class="edu-detail">
+					<strong>BE, Electronics &amp; Telecommunication</strong> &mdash; Savitribai Phule
+					Pune University
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<hr class="divider" />
+
+	<!-- ── Service & media ───────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Leadership &amp; service</p>
+		<h2>Community &amp; mentoring</h2>
+		<ul class="service-list">
+			<li>
+				<strong>Co-President</strong>, Graduate Student Advocacy Board, BME (Georgia Tech/Emory)
+				&mdash; 2024&ndash;Present. Organized student-faculty townhalls, restarted Mock Quals
+				mentorship program, and advocated for TA and health insurance policy.
+			</li>
+			<li>
+				<strong>Teaching &amp; Mentoring</strong> &mdash; TA for Bioengineering Statistics
+				(Georgia Tech) and Deep Learning (RIT); mentored junior students on data validation,
+				reproducible analysis, and model interpretation.
+			</li>
+			<li>
+				<strong>Featured Innovator</strong> &mdash; Emory Health Digest, Summer 2025. Profiled
+				for work on AI-enabled retinal imaging for cardiovascular risk assessment in
+				resource-limited settings.
+			</li>
+		</ul>
+	</section>
+
 </Layout>
 
 <style>
-	ul {
-		margin: 1rem 0 0;
-		padding-left: 1.2rem;
+	.justified {
+		text-align: justify;
+		max-width: 72ch;
+	}
+
+	strong {
+		color: var(--ink);
+		font-weight: 600;
+	}
+
+	/* IP cards */
+	.ip-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.ip-label {
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent);
+		margin: 0;
+	}
+
+	.ip-title {
+		font-weight: 600;
+		color: var(--ink);
+		margin: 0;
+		font-size: 0.95rem;
+		line-height: 1.4;
+	}
+
+	.ip-meta {
+		font-size: 0.82rem;
 		color: var(--muted);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Publications strip */
+	.pub-strip {
+		display: grid;
+		gap: 0;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		overflow: hidden;
+		margin-top: 1.25rem;
+		background: var(--surface);
+	}
+
+	.pub-item {
+		padding: 1rem 1.25rem;
+		border-bottom: 1px solid var(--border);
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	.pub-item:last-child {
+		border-bottom: none;
+	}
+
+	.pub-venue-tag {
+		font-size: 0.72rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.pub-line {
+		font-size: 0.9rem;
+		color: var(--muted);
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	/* Education list */
+	.edu-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.1rem;
+	}
+
+	.edu-item {
+		display: grid;
+		grid-template-columns: 7rem 1fr;
+		gap: 0.75rem;
+		align-items: start;
+	}
+
+	.edu-year {
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: var(--muted-light);
+		padding-top: 0.1rem;
+	}
+
+	.edu-detail {
+		font-size: 0.95rem;
+		color: var(--muted);
+		line-height: 1.5;
+	}
+
+	.edu-note {
+		margin: 0.25rem 0 0;
+		font-size: 0.85rem;
+		color: var(--muted-light);
+	}
+
+	/* Service list */
+	.service-list {
+		margin: 1rem 0 0;
+		padding-left: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.service-list li {
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.65;
+	}
+
+	@media (max-width: 560px) {
+		.edu-item {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
 	}
 </style>

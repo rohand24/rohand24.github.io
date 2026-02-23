@@ -1,105 +1,69 @@
-# Rohan N. Dhamdhere
+# ROHAN N. DHAMDHERE
 
-(585)532-8275 | rohan.dhamdhere@emory.edu | [LinkedIn](https://www.linkedin.com/in/rohandhamdhere/) | [Google Scholar](https://scholar.google.com/citations?user=-PyRW6EAAAAJ&hl=en) | Atlanta, GA
+1760 Haygood Drive, Atlanta, GA 30329  |  rndhamdhare@gmail.com  |  +1 585-532-8275
 
-## Translational Research Profile
+[LinkedIn](https://www.linkedin.com/in/rohandhamdhere/) | [Google Scholar](https://scholar.google.com/citations?user=-PyRW6EAAAAJ&hl=en) | [My Website](https://rohand24.github.io)
 
-Biomedical engineer focused on frugal innovation: developing scalable, AI-driven diagnostic tools built on routine clinical data for resource-limited settings. Demonstrated record of advancing research toward clinical use through $50,000 in commercialization funding, an intellectual property portfolio (1 allowed patent, 2 pending), and clinical validation of diagnostic algorithms in cohorts totaling 1,500+ patients across cardiology, nephrology, and hepatology.
+## SUMMARY
 
-## Intellectual Property & Commercialization Funding
+Biomedical engineer and PhD Candidate (Georgia Tech & Emory) with 8+ years building and validating AI models on real-world clinical data across retinal imaging, ECG, echocardiography, and CT. Proven track record translating multimodal patient data into actionable risk tools that outperform established clinical models, with 25+ peer-reviewed publications (100+ citations) and experience spanning medical centers, a national laboratory, and industry R&D.
 
-### Commercialization Grant
-$50,000 Georgia Research Alliance (GRA) Phase 1 Grant | 2025
+## RESEARCH EXPERIENCE
 
-**Project:** ARiSe - AI-informed Risk Stratification for Systemic Diseases
+**Ph.D. Candidate  |  Georgia Tech & Emory University | Aug 2022 – Aug 2026**
 
-**Role:** Co-Investigator / Key Technical Lead
+▸ **CARE-CKD** — Retinal vascular AI risk model for CKD patients outperforming PREVENT calculator (C-Index: 0.70 vs. 0.65); supported by 2025 Georgia Research Alliance translational award for clinical deployment. [Kidney360, 2025]
 
-**Purpose:** Commercial translation and prototype development of a retinal Systemic diseases (CVD, CKD, Alzheimer's, Diabetes) risk stratification tool for use in non-specialist and resource-limited settings.
+▸ **STAR-Echo** — Interpretable cardiac ultrasound biomarker (AUC: 0.71) fusing Vision Transformer and Radiomics features for echocardiography-based cardiovascular risk stratification. [MICCAI, 2023]
 
-### Patents & Invention Disclosures
+▸ **Heart Transplant ECG** — Applied ECG foundation model embeddings to longitudinal 12-lead ECGs for non-invasive heart transplant rejection surveillance; achieved 15.1% biopsy reduction (vs. 6.9% clinical baseline) at 95.9% sensitivity and 3× elevated 90-day rejection hazard ratio.
 
-Patent Allowed for Issuance - Deep-learning-based hepatic fat assessment Inventors: Modanwal G, Al-Kindi S, Walker J, Dhamdhere R, Rajagopalan S, Madabhushi A. Status: Notice of Allowance (Oct 2025); published as US 20240420320 A1
+**Research Assistant  |  Center for Computational Imaging & Personalized Diagnostics (CCIPD) | Aug 2020 – Jul 2022**
 
-Patent Application - Medical analysis using spatiotemporal analysis and transformer-based models Inventors: Dhamdhere R, Al-Kindi S, Modanwal G, Madabhushi A Status: Pending (US 20250118435 A1); filed Sept 2024
+▸ Developed a probabilistic coronary atlas for cardiac CT enabling automated, patient-specific coronary artery disease characterization and territory-level risk mapping. [AHA Scientific Sessions, 2021]
 
-Patent Application - Systems for Cardiovascular Risk Assessment Using Vessel Geometry (ARiSe) Inventors: Dhamdhere R, Madabhushi A. Status: Pending; covers core retinal vessel geometry-based risk assessment technology underpinning ARiSe / CARE-CKD.
+▸ Designed a multi-organ CT segmentation pipeline (liver, spleen) for opportunistic hepatic steatosis screening; validated across multi-site cohorts in large-scale cardiovascular outcomes studies. [Lancet eBioMedicine, 2022 & 2025]
 
-## Translational Research & Product Development
+**Research Assistant  |  Machine Intelligence Lab, RIT | Dec 2016 – Nov 2018**
 
-### Georgia Institute of Technology & Emory University - Dept. of Biomedical Engineering
-Graduate Researcher | Atlanta, GA | 2022 - Present
+▸ Built Graph CNN, object detection, and classification pipelines for traffic sign and stamp feature identification; collaborated with VisualDx Inc. to improve clinical skin lesion diagnosis (+3% accuracy).
 
-**Project:** ARiSe / CARE-CKD - Retinal AI for Cardiovascular Screening in CKD
+## INDUSTRY EXPERIENCE
 
-**Problem:** Cardiovascular disease (CVD) screening is often costly and inaccessible in non-specialist and resource-limited settings.
+**R&D Data Science Intern  |  Alcon  |  Johns Creek, GA | May – Aug 2025**
 
-**Innovation:** Designed a "frugal AI" pipeline (ARiSe) that repurposes routine, low-cost retinal fundus images to predict CVD risk; clinically evaluated in CKD patients as CARE-CKD.
+▸ Built a vision-language model prototype fusing corneal tomography, clinical notes, and patient lifestyle data to recommend personalized intraocular lenses for cataract surgery (n=450 patients; hallucination score: 0.13, low is better).
 
-**Clinical & Translational Traction**
-Validated on 800 CKD patients; results published in Kidney360 (CARE-CKD study) using real-world clinical data.
+**Research Associate  |  Oak Ridge National Laboratory | Dec 2018 – Mar 2020**
 
-Retinal feature pipeline additionally demonstrated utility for Alzheimer's disease detection, highlighting cross-disease applicability.
+▸ Developed ML/CV algorithms for building and grave detection in satellite imagery via semi-supervised learning (20% labeled data); deployed as an automated end-to-end large-scale counting pipeline. [IEEE GRSL, 2020]
 
-Featured in Emory Health Digest (Summer 2025) as a case study in equitable diagnostics.
+## EDUCATION
 
-Secured GRA Phase 1 commercialization funding to develop a deployable retinal risk assessment prototype for optometry and nephrology clinic workflows.
+**Ph.D. Biomedical Engineering (Candidate)  |  Georgia Tech & Emory University | 2022 – 2026**
 
-**Project:** Non-Invasive Transplant Rejection Monitoring (ECG-based)
+▸ GPA: 4.0  |  Advisor: Dr. Anant Madabhushi  |  Focus: ML with low-cost clinical modalities (retinal imaging, ECG, echo, CT) for cardiovascular risk prediction
 
-**Problem:** Heart transplant recipients undergo frequent, invasive endomyocardial biopsies to monitor rejection.
+**M.S. Computer Engineering  |  Rochester Institute of Technology | 2016 – 2018**
 
-**Innovation:** Developing an AI-based ECG analysis tool to estimate rejection risk non-invasively and reduce reliance on biopsies.
+▸ GPA: 3.90  |  Graduate Scholarship Recipient  |  Thesis: Meta Learning for Graph Neural Networks
 
-**Clinical Traction**
-Preliminary validation accepted for presentation at ISHLT 2026.
+## TECHNICAL SKILLS
 
-Ongoing work with clinical collaborators to integrate the model into standard post-transplant follow-up workflows.
+**Languages:** Python, MATLAB, C++, Agentic AI workflows, Claude Code
 
-### Center for Computational Imaging and Personalized Diagnostics (CCIPD), Case Western Reserve University
-Research Assistant | Cleveland, OH | 2020 - 2022
+**ML / Deep Learning:** PyTorch, Transformers (ViT, LLM/VLM), CNNs, Graph Neural Networks, Survival Analysis, Foundation Models
 
-**Project:** Opportunistic Liver Screening (DeHFT / LARI)
+**Medical Imaging & Analysis:** DICOM, NIfTI, Echocardiography, CT, Retinal Imaging, Radiomics, Longitudinal Modeling
 
-**Innovation:** Co-invented a deep learning system to assess hepatic steatosis from low-dose CT scans originally acquired for coronary calcium scoring (opportunistic screening).
+## OTHER SELECT PUBLICATIONS
 
-**Clinical & Translational Traction**
-Validated on 700 patients with strong correlation to reference standards.
+1. Modanwal G, Dhamdhere R, et al. QuLF-CT: Liver fat quantification on cardiac CT. [JACC Advances, 2024]
+2. Dhamdhere R, et al. Semi-supervised building & grave detection in satellite imagery. [IEEE GRSL, 2020]
+3. Dominguez M, Dhamdhere R, et al. General-Purpose Deep Point Cloud Feature Extractor. [IEEE WACV, 2018]
 
-Underpins an allowed US patent on hepatic fat assessment.
+## TEACHING & LEADERSHIP
 
-Extended in the LARI study, published in Lancet eBioMedicine, demonstrating opportunistic liver fat quantification at scale and supporting future licensing/translation opportunities.
+▸ Co-President, Graduate Student Advisory Board, BME, Georgia Tech & Emory (2023–present)
 
-## Selected Translational Publications
-
-- Dhamdhere R, et al. "Fundus Photograph-Derived Computational Features Predict Risk of Cardiovascular Events in the Chronic Renal Insufficiency Cohort Clinical Observational Study." Kidney360. 2025.
-- Clinical validation of retinal vessel feature-based CVD risk prediction (CARE-CKD; n~800).
-- Modanwal G, Dhamdhere R (technical co-inventor), et al. "Opportunistic hepatic steatosis assessment in low-dose coronary artery calcium CT using liver adipose-radiomic index (LARI)." Lancet eBioMedicine. 2025.
-- Validation of patented liver fat assessment tool on ~700 patients using opportunistic CT.
-- Dhamdhere R, et al. "STAR-Echo: A Novel Biomarker for Prognosis of MACE Using Spatiotemporal Analysis of Echocardiogram Videos in CKD Patients." MICCAI. 2023.
-- Foundation for transformer-based spatiotemporal patent; repurposes routine echo for future CVD risk prediction.
-- Dhamdhere R, et al. "ECG-based prediction of heart transplant rejection." Abstract accepted for presentation at ISHLT 2026.
-- Early clinical validation of non-invasive rejection risk modeling.
-
-## Education
-
-- Georgia Institute of Technology & Emory University PhD, Biomedical Engineering | Expected 2026
-- Focus: AI-driven cardiovascular disease risk stratification and translational deployment of medical AI tools.
-- Rochester Institute of Technology (RIT) MS, Computer Engineering | 2018
-- Savitribai Phule Pune University BE, Electronics & Telecommunication | 2015
-
-## Leadership, Teaching & Media
-
-### Co-President, Graduate Student Advocacy Board (BME, Georgia Tech/Emory) | 2024-Present
-
-- Organized student-faculty townhalls to address PhD training concerns.
-- Helped restart the Mock Quals mentorship program pairing senior and junior PhD students.
-- Provided avenue for discussion of Teaching Assistantship and Health Insurance concerns of students.
-
-### Teaching & Mentoring
-
-- Led sessions for Bioengineering Statistics, mentoring junior students on data validation, reproducible analysis, and model interpretation.
-
-### Featured Innovator, Emory Health Digest, Summer 2025
-
-- Profiled for work on AI-enabled retinal imaging for cardiovascular risk assessment.
+▸ Teaching Assistant: Bioengineering Statistics (Georgia Tech), Deep Learning (RIT)
