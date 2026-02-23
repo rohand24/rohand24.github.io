@@ -14,60 +14,62 @@ const withBase = (path) => {
 
 	<!-- ── About Me ─────────────────────────────────────────── -->
 	<section class="section">
-		<p class="eyebrow">About Me</p>
-		<h1>{siteConfig.person.name}</h1>
-		<p class="justified">
-			I&rsquo;m Rohan Dhamdhere, a PhD Candidate in Biomedical Engineering in the Georgia
-			Tech&ndash;Emory program. What motivates me most is closing the gap between what AI can
-			do in a paper and what it can do for a patient &mdash; building tools that are not just
-			accurate but interpretable, deployable, and worth a clinician&rsquo;s trust. I love
-			building translational tools, collaborating with clinicians and engineers across
-			disciplines, and turning complex modeling problems into clear, testable products that
-			can actually work in a hospital.
-		</p>
-		<p class="justified">
-			Outside of research, you&rsquo;ll find me running, debating whether the Packers&rsquo;
-			secondary will ever be elite again, following Indian cricket, or hiking through US
-			national parks.
-		</p>
+		<details class="collapsible-section" open>
+			<summary class="collapsible-header">
+				<p class="eyebrow">About Me</p>
+				<h1>{siteConfig.person.name}</h1>
+				<span class="expand-hint"><span class="when-closed">▸ click to expand</span><span class="when-open">▾ click to collapse</span></span>
+			</summary>
+			<div class="collapsible-body">
+				<p class="justified">
+					I&rsquo;m Rohan Dhamdhere, a PhD Candidate in Biomedical Engineering in the Georgia
+					Tech&ndash;Emory program. What motivates me most is closing the gap between what AI can
+					do in a paper and what it can do for a patient &mdash; building tools that are not just
+					accurate but interpretable, deployable, and worth a clinician&rsquo;s trust. I love
+					building translational tools, collaborating with clinicians and engineers across
+					disciplines, and turning complex modeling problems into clear, testable products that
+					can actually work in a hospital.
+				</p>
+				<p class="justified">
+					Outside of research, you&rsquo;ll find me running, debating whether the Packers&rsquo;
+					secondary will ever be elite again, following Indian cricket, or hiking through US
+					national parks.
+				</p>
+			</div>
+		</details>
 	</section>
 
 	<hr class="divider" />
 
 	<!-- ── About My Research ─────────────────────────────────── -->
 	<section class="section">
-		<p class="eyebrow">About My Research</p>
-		<h2>Multimodal AI for clinical decision support</h2>
-		<p class="justified">
-			I am a PhD Candidate in Biomedical Engineering at Georgia Tech &amp; Emory University,
-			specializing in translational AI systems that turn routine clinical data &mdash; retinal
-			fundus photographs, 12-lead ECGs, echocardiogram videos, and low-dose CT &mdash; into
-			validated cardiovascular risk tools. My work spans the full pipeline from medical image
-			preprocessing and deep feature extraction through risk model development, longitudinal
-			data fusion, and validation in real-world clinical cohorts.
-		</p>
-		<p class="justified">
-			My models have been validated in cohorts exceeding 1,500 patients across cardiology,
-			nephrology, hepatology, and transplant medicine. In the CARE-CKD study
-			(<em>Kidney360</em>, 2025), a retinal vascular AI model I developed outperformed the
-			AHA-PREVENT cardiovascular risk calculator (C-Index: 0.70 vs. 0.65) in 800 CKD patients
-			and received a Georgia Research Alliance translational award for clinical deployment.
-			A CT-based liver fat quantification pipeline validated in 700+ patients across multi-site
-			outcomes cohorts underpins an allowed US patent and was published in
-			<em>Lancet eBioMedicine</em> (2025). For non-invasive transplant rejection monitoring,
-			an ECG foundation model approach achieved 15.1% biopsy reduction at 95.9% sensitivity
-			&mdash; more than doubling the 6.9% clinical baseline. During a 2025 R&amp;D internship
-			at Alcon, I built a vision-language model prototype fusing corneal tomography, clinical
-			notes, and patient lifestyle data for personalized intraocular lens recommendation in
-			cataract surgery.
-		</p>
-		<p class="justified">
-			Technically, I work across vision transformers, ECG and image foundation models, graph
-			neural networks, radiomics pipelines, survival analysis frameworks, and vision-language
-			models, with particular experience designing multimodal fusion architectures that combine
-			imaging features, structured clinical variables, and longitudinal physiological signals
-			to produce interpretable risk scores validated against real-world clinical endpoints.
-		</p>
+		<details class="collapsible-section">
+			<summary class="collapsible-header">
+				<p class="eyebrow">About My Research</p>
+				<h2>Multimodal AI for clinical decision support</h2>
+				<span class="expand-hint"><span class="when-closed">▸ click to expand</span><span class="when-open">▾ click to collapse</span></span>
+			</summary>
+			<div class="collapsible-body">
+				<p class="justified">
+					My research focuses on building AI systems that turn routine clinical data &mdash; retinal
+					photographs, 12-lead ECGs, echocardiogram videos, and low-dose CT &mdash; into validated
+					cardiovascular risk tools. Models I have developed have been tested in cohorts exceeding
+					1,500 patients across cardiology, nephrology, hepatology, and transplant medicine, with
+					results published in Kidney360, Lancet eBioMedicine, MICCAI, and JACC Advances. Highlights
+					include a retinal vascular AI model that outperforms the AHA-PREVENT risk calculator in CKD
+					patients, a CT-based liver fat pipeline that underpins an allowed US patent, and an ECG
+					foundation model approach that more than doubles biopsy reduction rates for heart transplant
+					rejection monitoring.
+				</p>
+				<p class="justified">
+					Technically, I work across vision transformers, ECG and image foundation models, graph
+					neural networks, radiomics pipelines, survival analysis, and vision-language models. My
+					particular focus is designing multimodal fusion architectures that combine imaging features,
+					structured clinical variables, and longitudinal physiological signals to produce
+					interpretable, clinically actionable risk scores.
+				</p>
+			</div>
+		</details>
 	</section>
 
 	<hr class="divider" />
@@ -338,5 +340,48 @@ const withBase = (path) => {
 			grid-template-columns: 1fr;
 			gap: 0.25rem;
 		}
+	}
+
+	/* ── Collapsible sections ─────────────────────────────── */
+	details.collapsible-section > summary {
+		list-style: none;
+		cursor: pointer;
+		display: block;
+	}
+
+	details.collapsible-section > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	details.collapsible-section > summary:hover h1,
+	details.collapsible-section > summary:hover h2 {
+		color: var(--accent);
+		transition: color 0.15s ease;
+	}
+
+	.expand-hint {
+		display: block;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--muted-light);
+		letter-spacing: 0.04em;
+		margin-top: 0.2rem;
+		font-family: 'Inter', sans-serif;
+	}
+
+	.expand-hint .when-open {
+		display: none;
+	}
+
+	details[open] > summary .when-closed {
+		display: none;
+	}
+
+	details[open] > summary .when-open {
+		display: inline;
+	}
+
+	.collapsible-body {
+		margin-top: 1rem;
 	}
 </style>

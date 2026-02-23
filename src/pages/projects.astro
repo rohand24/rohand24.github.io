@@ -21,39 +21,44 @@ const projects = await loadProjects();
 			);
 
 			return (
-				<article class="card project-card">
-					<div class="project-header">
-						<p class="eyebrow">{project.timeframe}</p>
-						<h2>{project.title}</h2>
-						<p class="project-subtitle">{project.subtitle}</p>
-					</div>
-
-					<p class="project-summary">{project.summary}</p>
-
-					{project.highlights && project.highlights.length > 0 && (
-						<ul class="project-highlights">
-							{project.highlights.map((item) => (
-								<li>{item}</li>
-							))}
-						</ul>
-					)}
-
-					<div class="project-footer">
-						<div class="tag-list">
-							{project.tags?.map((tag) => (
-								<span class="tag">{tag}</span>
-							))}
+				<details class="card project-card">
+					<summary class="project-summary-trigger">
+						<div class="project-header">
+							<p class="eyebrow">{project.timeframe}</p>
+							<h2>{project.title}</h2>
+							<p class="project-subtitle">{project.subtitle}</p>
 						</div>
-						{(validLinks.length > 0 || pendingLinks) && (
-							<div class="project-links">
-								{validLinks.map((link) => (
-									<a href={link.url} target="_blank" rel="noopener noreferrer">{link.label} &rarr;</a>
+						<span class="expand-hint"><span class="when-closed">▸ click to expand</span><span class="when-open">▾ click to collapse</span></span>
+					</summary>
+
+					<div class="project-body">
+						<p class="project-desc">{project.summary}</p>
+
+						{project.highlights && project.highlights.length > 0 && (
+							<ul class="project-highlights">
+								{project.highlights.map((item) => (
+									<li>{item}</li>
 								))}
-								{pendingLinks && <span class="pending">Links available on request</span>}
-							</div>
+							</ul>
 						)}
+
+						<div class="project-footer">
+							<div class="tag-list">
+								{project.tags?.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+							{(validLinks.length > 0 || pendingLinks) && (
+								<div class="project-links">
+									{validLinks.map((link) => (
+										<a href={link.url} target="_blank" rel="noopener noreferrer">{link.label} &rarr;</a>
+									))}
+									{pendingLinks && <span class="pending">Links available on request</span>}
+								</div>
+							)}
+						</div>
 					</div>
-				</article>
+				</details>
 			);
 		})}
 	</section>
@@ -67,9 +72,58 @@ const projects = await loadProjects();
 	}
 
 	.project-card {
+		display: block;
+	}
+
+	/* Collapsible details/summary */
+	details.project-card > summary {
+		list-style: none;
+		cursor: pointer;
+		display: block;
+	}
+
+	details.project-card > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.project-summary-trigger {
+		display: flex;
+		flex-direction: column;
+	}
+
+	details.project-card > summary:hover h2 {
+		color: var(--accent);
+		transition: color 0.15s ease;
+	}
+
+	.expand-hint {
+		display: block;
+		font-size: 0.75rem;
+		font-weight: 500;
+		color: var(--muted-light);
+		letter-spacing: 0.04em;
+		margin-top: 0.35rem;
+	}
+
+	.expand-hint .when-open {
+		display: none;
+	}
+
+	details[open] > summary .when-closed {
+		display: none;
+	}
+
+	details[open] > summary .when-open {
+		display: inline;
+	}
+
+	.project-body {
 		display: flex;
 		flex-direction: column;
 		gap: 0.9rem;
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--border);
 	}
 
 	.project-header {
@@ -93,7 +147,7 @@ const projects = await loadProjects();
 		font-size: 0.95rem;
 	}
 
-	.project-summary {
+	.project-desc {
 		color: var(--muted);
 		font-size: 0.95rem;
 		line-height: 1.7;
