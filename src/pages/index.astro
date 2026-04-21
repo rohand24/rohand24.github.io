@@ -30,6 +30,14 @@ const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headsh
 				between machine learning research and clinical practice.
 			</p>
 
+			<div class="open-to-work" aria-label="Open to work">
+				<p class="open-to-work-label">Open to work</p>
+				<p class="open-to-work-text">
+					Open to Healthcare/Industry Data Science roles worldwide, including in-person
+					and remote opportunities.
+				</p>
+			</div>
+
 			<p class="stats-line">
 				25+ publications &nbsp;&middot;&nbsp; 100+ citations &nbsp;&middot;&nbsp; 3 patents (1 allowed, 2 pending)
 			</p>
@@ -66,23 +74,22 @@ const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headsh
 			<div class="area-card card">
 				<div class="area-header">
 					<div class="area-icon">
-						<!-- Eye / retinal -->
+						<!-- ECG waveform (P-QRS-T) -->
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
-							<circle cx="12" cy="12" r="2.5"/>
+							<polyline points="1,12 4,12 5,9.5 6,12 7,12 8.5,5 9.5,19 10.5,12 11.5,12 12.5,9 13.5,12 18,12 23,12"/>
 						</svg>
 					</div>
-					<h3>Retinal AI for Systemic Disease</h3>
+					<h3>ECG-Based Transplant Rejection</h3>
 				</div>
 				<p>
-					Repurposing routine fundus photographs to predict cardiovascular, renal, and
-					neurodegenerative risk &mdash; validated in &gt;800 CKD patients (CARE-CKD,
-					<em>Kidney360</em> 2025), supported by GRA Phase 1 commercialization award.
+					Non-invasive heart transplant rejection monitoring from longitudinal 12-lead ECGs
+					using foundation model embeddings &mdash; achieving 15.1% biopsy reduction at
+					95.9% sensitivity. Preliminary results accepted at ISHLT 2026.
 				</p>
 				<div class="area-tags">
-					<span class="tag">Retinal imaging</span>
-					<span class="tag alt">CVD risk</span>
-					<span class="tag">CKD</span>
+					<span class="tag">ECG</span>
+					<span class="tag alt">Transplant cardiology</span>
+					<span class="tag">Non-invasive</span>
 				</div>
 			</div>
 			<div class="area-card card">
@@ -146,22 +153,23 @@ const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headsh
 			<div class="area-card card">
 				<div class="area-header">
 					<div class="area-icon">
-						<!-- ECG waveform (P-QRS-T) -->
+						<!-- Eye / retinal -->
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-							<polyline points="1,12 4,12 5,9.5 6,12 7,12 8.5,5 9.5,19 10.5,12 11.5,12 12.5,9 13.5,12 18,12 23,12"/>
+							<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/>
+							<circle cx="12" cy="12" r="2.5"/>
 						</svg>
 					</div>
-					<h3>ECG-Based Transplant Rejection</h3>
+					<h3>Retinal AI for Systemic Disease</h3>
 				</div>
 				<p>
-					Non-invasive heart transplant rejection monitoring from longitudinal 12-lead ECGs
-					using foundation model embeddings &mdash; achieving 15.1% biopsy reduction at
-					95.9% sensitivity. Preliminary results accepted at ISHLT 2026.
+					Repurposing routine fundus photographs to predict cardiovascular, renal, and
+					neurodegenerative risk &mdash; validated in &gt;800 CKD patients (CARE-CKD,
+					<em>Kidney360</em> 2025), supported by GRA Phase 1 commercialization award.
 				</p>
 				<div class="area-tags">
-					<span class="tag">ECG</span>
-					<span class="tag alt">Transplant cardiology</span>
-					<span class="tag">Non-invasive</span>
+					<span class="tag">Retinal imaging</span>
+					<span class="tag alt">CVD risk</span>
+					<span class="tag">CKD</span>
 				</div>
 			</div>
 		</div>
@@ -172,6 +180,20 @@ const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headsh
 		<p class="eyebrow">Selected publications</p>
 		<h2>Recent work</h2>
 		<div class="pub-strip">
+			<div class="pub-item">
+				<span class="pub-venue-tag">Journal of Cardiac Failure &middot; Under review</span>
+				<p class="pub-line">
+					Dhamdhere R, et al. &ldquo;Longitudinal Electrocardiographic
+					Surveillance for Cardiac Allograft Rejection After Heart Transplantation.&rdquo;
+				</p>
+			</div>
+			<div class="pub-item">
+				<span class="pub-venue-tag">J Heart Lung Transplant Abstract &middot; 2026</span>
+				<p class="pub-line">
+					Manandhar S, Dhamdhere R, et al. &ldquo;Multimodal Fusion of Biopsy and
+					Electrocardiogram Data for Rejection Risk Prediction After Heart Transplantation.&rdquo;
+				</p>
+			</div>
 			<div class="pub-item">
 				<span class="pub-venue-tag">Kidney360 &middot; 2025</span>
 				<p class="pub-line">
@@ -238,6 +260,34 @@ const headshot = siteConfig.assets?.headshot ? withBase(siteConfig.assets.headsh
 		color: var(--muted-light);
 		letter-spacing: 0.02em;
 		margin: 0 0 1.5rem;
+	}
+
+	.open-to-work {
+		margin: 0 0 1rem;
+		padding: 0.75rem 0.9rem;
+		border: 1px solid rgba(15, 118, 110, 0.2);
+		border-radius: 8px;
+		background:
+			linear-gradient(135deg, rgba(240, 253, 250, 0.95), rgba(239, 246, 255, 0.92));
+		box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+		max-width: 56ch;
+	}
+
+	.open-to-work-label {
+		margin: 0 0 0.15rem;
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.open-to-work-text {
+		margin: 0;
+		font-size: 0.9rem;
+		font-weight: 600;
+		line-height: 1.45;
+		color: var(--ink);
 	}
 
 	/* Buttons */
