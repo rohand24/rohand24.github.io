@@ -66,6 +66,7 @@
     "enableSearch": false
   },
   "integrations": {
+    "cloudflareWebAnalyticsToken": "9f3cb2e622a44c40bfc46eff486bdfc6",
     "googleAnalyticsId": "TODO_OPTIONAL",
     "plausibleDomain": "TODO_OPTIONAL"
   },

@@ -11,6 +11,11 @@ const faviconPath = siteConfig.assets?.favicon ?? '/favicon.svg';
 const faviconHref = faviconPath.startsWith('/')
   ? `${base}${faviconPath.replace(/^\//, '')}`
   : `${base}${faviconPath}`;
+const cloudflareWebAnalyticsToken = siteConfig.integrations?.cloudflareWebAnalyticsToken;
+const hasCloudflareWebAnalytics =
+	typeof cloudflareWebAnalyticsToken === 'string' &&
+	cloudflareWebAnalyticsToken.trim() &&
+	!cloudflareWebAnalyticsToken.startsWith('TODO');
 ---
 
 <!doctype html>
@@ -37,6 +42,13 @@ const faviconHref = faviconPath.startsWith('/')
 			</main>
 			<Footer />
 		</div>
+		{hasCloudflareWebAnalytics && (
+			<script
+				defer
+				src="https://static.cloudflareinsights.com/beacon.min.js"
+				data-cf-beacon={JSON.stringify({ token: cloudflareWebAnalyticsToken.trim() })}
+			></script>
+		)}
 	</body>
 </html>
 
