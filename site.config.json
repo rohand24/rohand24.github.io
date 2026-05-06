@@ -38,8 +38,8 @@
   "navigation": [
     { "label": "Home", "path": "/" },
     { "label": "About", "path": "/about" },
-    { "label": "Research", "path": "/research" },
-    { "label": "Projects", "path": "/projects" },
+    { "label": "Publications", "path": "/research" },
+    { "label": "Research", "path": "/projects" },
     { "label": "CV", "path": "/cv" },
     { "label": "Contact", "path": "/contact" }
   ],

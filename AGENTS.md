@@ -13,6 +13,27 @@ The site should highlight:
 - CV: a page plus a downloadable CV file placed under `public/`
 - Contact: email + links
 
+## Current site direction and implementation notes
+The site was originally tuned around translational work for an award application, but the current direction is a job-application portfolio for both industry and academic roles. Preserve a professional biomedical AI / translational research tone, and avoid making it sound like a generic student project portfolio.
+
+Current navigation labels intentionally differ from some route names to avoid breaking deployed links:
+- Top nav label `Publications` points to `/research`, which renders publications from `publications.bib`.
+- Top nav label `Research` points to `/projects`, which renders the research portfolio from `projects.json`.
+- Keep these routes stable unless the user explicitly asks to rename URLs. If cleaner URLs are requested later, prefer adding compatibility pages/redirects rather than breaking existing links.
+
+About page structure:
+- `About My Research` should be expanded by default and remain collapsible.
+- `Selected publications` should appear before `Translational track record`.
+
+Analytics:
+- Cloudflare Web Analytics is configured via `site.config.json` under `integrations.cloudflareWebAnalyticsToken`.
+- The shared layout conditionally injects Cloudflare's beacon script when that token is set.
+- Do not add additional analytics or raw-IP logging unless the user explicitly asks.
+
+Visual direction:
+- Current palette is slate/teal/blue: professional, medical/technical, and suitable for academic plus industry applications.
+- If improving design, keep the core palette unless asked otherwise, but strengthen hierarchy and portfolio polish rather than overhauling the brand.
+
 ## Source-of-truth inputs
 Use local files as the only content source.
 - `resume.md` is the canonical resume text.

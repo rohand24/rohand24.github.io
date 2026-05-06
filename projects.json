@@ -1,20 +1,20 @@
 [
   {
-    "id": "arise-care-ckd",
-    "title": "ARiSe / CARE-CKD",
-    "subtitle": "Retinal vascular AI for cardiovascular risk stratification in chronic kidney disease",
-    "timeframe": "2022 – Present",
-    "role": "Co-Investigator / Key Technical Lead",
+    "id": "multimodal-biopsy-ecg-rejection",
+    "title": "Multimodal Fusion of Biopsy and ECG for Transplant Rejection Surveillance",
+    "subtitle": "Gated fusion of endomyocardial biopsy histopathology and ECG foundation-model embeddings for rejection risk prediction",
+    "timeframe": "2025 – Present",
+    "role": "Researcher / Multimodal AI Developer",
     "status": "Active",
-    "summary": "CKD patients face 5–10× elevated cardiovascular risk, yet standard risk calculators (e.g., AHA-PREVENT) perform poorly in this high risk population group. ARiSe repurposes routine retinal fundus photographs — already captured at optometry visits — to extract vessel geometry and vascular texture features that encode systemic vascular disease burden. A multi-feature risk model built on these retinal biomarkers outperforms the PREVENT calculator (C-Index: 0.70 vs. 0.65) in a prospective cohort of 800 CKD patients (CARE-CKD study). The same retinal feature pipeline was also evaluated for Alzheimer's disease detection, demonstrating cross-disease applicability.",
+    "summary": "Heart transplant patients undergo multiple endomyocardial biopsies each year for rejection surveillance, even though most biopsies are negative — creating unnecessary procedural risk, cost, and patient burden. This project integrates biopsy histopathology representations with ECG foundation-model embeddings in a multimodal deep learning framework for rejection risk prediction after cardiac transplantation. EMB slides are encoded with an attention-based multiple-instance learning model, ECGs are represented as 768-dimensional foundation-model embeddings, and a gated fusion network combines both modalities into a continuous patient-level risk score.",
     "highlights": [
-      "C-Index 0.70 vs. 0.65 (AHA-PREVENT) validated on 800 CKD patients",
-      "Cross-disease utility: retinal features applied to Alzheimer's detection",
-      "Published in Kidney360 (2025)"
+      "Fusion model improved C-index vs. EMB-only model: 0.66 vs. 0.61 on a held-out test set (N=134)",
+      "Significant Kaplan-Meier risk separation with fusion HR=2.97 (95% CI: 1.47-6.00); likelihood-ratio test p=0.0017",
+      "Published as a 2026 Journal of Heart and Lung Transplantation abstract"
     ],
-    "tags": ["Retinal imaging", "Deep learning", "CVD risk", "CKD", "Vision transformer"],
+    "tags": ["Multimodal fusion", "ECG foundation models", "Histopathology", "Multiple-instance learning", "Heart transplant"],
     "links": [
-      { "label": "Kidney360 (2025)", "url": "https://journals.lww.com/kidney360/abstract/9900/fundus_photograph_derived_computational_features.740.aspx" }
+      { "label": "JHLT 2026 abstract", "url": "https://www.jhltonline.org/article/S1053-2498(26)01396-3/fulltext" }
     ]
   },
   {
@@ -33,6 +33,24 @@
     "tags": ["ECG", "Foundation models", "Longitudinal modeling", "Transplant cardiology", "Survival analysis"],
     "links": [
       { "label": "ISHLT 2026 abstract" }
+    ]
+  },
+  {
+    "id": "arise-care-ckd",
+    "title": "ARiSe / CARE-CKD",
+    "subtitle": "Retinal vascular AI for cardiovascular risk stratification in chronic kidney disease",
+    "timeframe": "2022 – 2026",
+    "role": "Co-Investigator / Key Technical Lead",
+    "status": "Active",
+    "summary": "CKD patients face 5–10× elevated cardiovascular risk, yet standard risk calculators (e.g., AHA-PREVENT) perform poorly in this high risk population group. ARiSe repurposes routine retinal fundus photographs — already captured at optometry visits — to extract vessel geometry and vascular texture features that encode systemic vascular disease burden. A multi-feature risk model built on these retinal biomarkers outperforms the PREVENT calculator (C-Index: 0.70 vs. 0.65) in a prospective cohort of 800 CKD patients (CARE-CKD study). The same retinal feature pipeline was also evaluated for Alzheimer's disease detection, demonstrating cross-disease applicability.",
+    "highlights": [
+      "C-Index 0.70 vs. 0.65 (AHA-PREVENT) validated on 800 CKD patients",
+      "Cross-disease utility: retinal features applied to Alzheimer's detection",
+      "Published in Kidney360 (2025)"
+    ],
+    "tags": ["Retinal imaging", "Deep learning", "CVD risk", "CKD", "Vision transformer"],
+    "links": [
+      { "label": "Kidney360 (2025)", "url": "https://journals.lww.com/kidney360/abstract/9900/fundus_photograph_derived_computational_features.740.aspx" }
     ]
   },
   {
