@@ -197,6 +197,41 @@ const withBase = (path) => {
 
 	<hr class="divider" />
 
+	<!-- ── Awards ────────────────────────────────────────────── -->
+	<section class="section">
+		<p class="eyebrow">Awards &amp; honors</p>
+		<h2>Research, service, and academic honors</h2>
+		<div class="award-group" aria-label="Awards and honors">
+			<article class="service-highlight">
+				<p class="service-kicker">Departmental service award</p>
+				<h3>Outstanding Departmental Service Award</h3>
+				<p>
+					Wallace H. Coulter Department of Biomedical Engineering, Emory University and
+					Georgia Institute of Technology.
+				</p>
+			</article>
+			<article class="service-highlight">
+				<p class="service-kicker">Commercialization award</p>
+				<h3>Georgia Research Alliance Phase 1 Grant</h3>
+				<p>
+					$50,000 award for ARiSe retinal risk assessment prototype development, 2025.
+				</p>
+			</article>
+			<article class="service-highlight">
+				<p class="service-kicker">Scholarship</p>
+				<h3>Graduate Scholarship Recipient</h3>
+				<p>Rochester Institute of Technology, MS in Computer Engineering.</p>
+			</article>
+			<article class="service-highlight">
+				<p class="service-kicker">Undergraduate honor</p>
+				<h3>Best Outgoing Student</h3>
+				<p>ECE Department, MIT College of Engineering, Pune University.</p>
+			</article>
+		</div>
+	</section>
+
+	<hr class="divider" />
+
 	<!-- ── Service & media ───────────────────────────────────── -->
 	<section class="section">
 		<p class="eyebrow">Leadership &amp; service</p>
@@ -335,6 +370,43 @@ const withBase = (path) => {
 	}
 
 	/* Service list */
+	.award-group {
+		display: grid;
+		gap: 0.85rem;
+		margin-top: 1rem;
+	}
+
+	.service-highlight {
+		padding: 1rem 1.15rem;
+		border-left: 3px solid var(--accent);
+		border-radius: 6px;
+		background: var(--surface);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.service-kicker {
+		margin: 0 0 0.25rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	.service-highlight h3 {
+		font-family: 'Inter', system-ui, sans-serif;
+		font-size: 0.98rem;
+		font-weight: 700;
+		line-height: 1.35;
+		margin: 0 0 0.25rem;
+	}
+
+	.service-highlight p:last-child {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
 	.service-list {
 		margin: 1rem 0 0;
 		padding-left: 1.25rem;
@@ -353,6 +425,12 @@ const withBase = (path) => {
 		.edu-item {
 			grid-template-columns: 1fr;
 			gap: 0.25rem;
+		}
+	}
+
+	@media (min-width: 760px) {
+		.award-group {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 

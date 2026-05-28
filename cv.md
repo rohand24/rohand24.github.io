@@ -22,6 +22,13 @@ Thesis: Meta Learning for Graph Neural Networks
 **Savitribai Phule Pune University** | Pune, India  
 BE, Electronics and Telecommunication | 2015
 
+## Awards and Honors
+
+- **Outstanding Departmental Service Award:** Wallace H. Coulter Department of Biomedical Engineering, Emory University and Georgia Institute of Technology.
+- **Georgia Research Alliance Phase 1 Grant:** $50,000 commercialization award for ARiSe retinal risk assessment prototype development, 2025. Role: Co-Investigator / Key Technical Lead.
+- **Graduate Scholarship Recipient:** Rochester Institute of Technology, MS in Computer Engineering.
+- **Best Outgoing Student:** ECE Department, MIT College of Engineering, Pune University.
+
 ## Research Appointments
 
 **Graduate Researcher, Department of Biomedical Engineering** | Georgia Tech and Emory University | 2022-Present
